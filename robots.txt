@@ -2,4 +2,7 @@ User-agent: *
 Allow: /
 Disallow: /t/
 Disallow: /m/
+Disallow: /terms-of-service/
+Disallow: /privacy-policy/
+Disallow: /sms-consent/
 Sitemap: https://compassplace.com/sitemap.xml
