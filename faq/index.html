@@ -1,445 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compass Place | Frequently Asked Questions</title>
-    <meta name="description" content="Frequently asked questions about Compass Place senior living guidance.">
-    <link rel="canonical" href="https://compassplace.com/faq">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --color-bg: #FAFAF7;
-            --color-primary: #2B5F4E;
-            --color-primary-light: #3A7D66;
-            --color-text: #2C2C2C;
-            --color-text-secondary: #6B6B6B;
-            --color-border: #E5E2DC;
-            --font-display: 'DM Serif Display', Georgia, serif;
-            --font-body: 'DM Sans', -apple-system, sans-serif;
-            --max-width: 780px;
-        }
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: var(--font-body); color: var(--color-text); background: var(--color-bg); line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased; }
-        .faq-container {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 48px 24px 80px;
-        }
-        .faq-container h1 {
-            font-family: var(--font-display);
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            color: var(--color-primary);
-            margin-bottom: 8px;
-        }
-        .faq-container .subtitle {
-            color: var(--color-text-secondary);
-            margin-bottom: 36px;
-        }
-        .faq-item {
-            border-bottom: 1px solid var(--color-border);
-            padding: 20px 0;
-        }
-        .faq-item:first-of-type { border-top: 1px solid var(--color-border); }
-        .faq-q {
-            font-weight: 600;
-            font-size: 1.05rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            font-family: var(--font-body);
-            color: var(--color-text);
-            padding: 0;
-        }
-        .faq-q::after {
-            content: '+';
-            font-size: 1.4rem;
-            color: var(--color-primary);
-            flex-shrink: 0;
-            transition: transform 0.2s;
-        }
-        .faq-q.open::after { content: '−'; }
-        .faq-a {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-        }
-        .faq-a.open { max-height: 800px; }
-        .faq-a p { margin-top: 12px; }
-        .faq-contact {
-            margin-top: 40px;
-            padding: 24px;
-            background: #fff;
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            text-align: center;
-        }
-        .faq-contact p { color: var(--color-text-secondary); margin-bottom: 8px; }
-        .faq-contact a { color: var(--color-primary); font-weight: 600; text-decoration: none; }
-        .faq-contact a:hover { text-decoration: underline; }
-
-        .footer { border-top: 1px solid var(--color-border); padding: 32px 24px; text-align: center; font-size: 0.85rem; color: var(--color-text-secondary); }
-        .footer-inner { max-width: 1100px; margin: 0 auto; }
-        .footer-links { margin-bottom: 12px; }
-        .footer-links a { color: var(--color-text-secondary); text-decoration: none; margin: 0 12px; font-size: 0.85rem; }
-        .footer-links a:hover { color: var(--color-primary); }
-    
-
-/* Compass Place canonical shared shell */
-:root {
-  --primary: #2b5f4e;
-  --primary-light: #3a7d66;
-  --text: #2c2c2c;
-  --text-secondary: #6b6b6b;
-  --border: #e5e2dc;
-}
-.cp-shell-header,
-.cp-shell-footer {
-  box-sizing: border-box;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-}
-.cp-shell-header *,
-.cp-shell-footer * {
-  box-sizing: border-box;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-}
-.cp-shell-header {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  width: 100%;
-  background: #ffffff;
-  border-bottom: 1px solid var(--border);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.cp-shell-footer {
-  width: 100%;
-  background: #ffffff;
-  border-top: 1px solid var(--border);
-  margin-top: 12px;
-}
-.cp-shell-inner {
-  width: min(1160px, calc(100% - 32px));
-  margin: 0 auto;
-}
-.cp-shell-header .cp-shell-inner {
-  padding: 18px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-}
-.cp-shell-brand,
-.cp-shell-brand:link,
-.cp-shell-brand:visited {
-  display: inline-block;
-  color: var(--primary) !important;
-  text-decoration: none !important;
-  font-size: 1.44rem !important;
-  font-weight: 800 !important;
-  line-height: 1.1 !important;
-  letter-spacing: -0.02em !important;
-}
-.cp-shell-nav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 18px;
-}
-.cp-shell-nav a,
-.cp-shell-nav a:link,
-.cp-shell-nav a:visited {
-  color: var(--text) !important;
-  text-decoration: none !important;
-  font-size: 0.98rem !important;
-  font-weight: 500 !important;
-  line-height: 1.2 !important;
-}
-.cp-shell-nav a:hover { text-decoration: underline !important; }
-.cp-shell-nav .cp-shell-cta,
-.cp-shell-nav .cp-shell-cta:link,
-.cp-shell-nav .cp-shell-cta:visited {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 14px;
-  background: var(--primary) !important;
-  color: #ffffff !important;
-  border-radius: 999px;
-  font-weight: 700 !important;
-  line-height: 1 !important;
-  text-decoration: none !important;
-}
-.cp-shell-nav .cp-shell-cta:hover {
-  background: var(--primary-light) !important;
-  text-decoration: none !important;
-}
-.cp-shell-footer-inner { padding: 28px 0 40px; }
-.cp-shell-tagline {
-  margin: 8px 0 0 !important;
-  color: var(--text-secondary) !important;
-  font-size: 0.95rem !important;
-  line-height: 1.5 !important;
-}
-.cp-shell-footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-  margin-top: 10px;
-}
-.cp-shell-footer-links a,
-.cp-shell-footer-links a:link,
-.cp-shell-footer-links a:visited {
-  color: var(--text-secondary) !important;
-  text-decoration: none !important;
-  font-size: 0.95rem !important;
-  line-height: 1.4 !important;
-}
-.cp-shell-footer-links a:hover { text-decoration: underline !important; }
-/* Hide mobile CTA on desktop — must come BEFORE the media query so mobile can override */
-.cp-shell-cta-mobile { display: none; }
-@media (max-width: 860px) {
-  .cp-shell-header .cp-shell-inner {
-    padding: 12px 0;
-    flex-wrap: wrap;
-    align-items: center;
-    row-gap: 0;
-  }
-  .cp-shell-brand { flex: 1 1 auto; line-height: 34px; padding-top: 2px; }
-  .cp-shell-cta-mobile {
-    display: inline-block;
-    background: var(--primary);
-    color: #fff !important;
-    padding: 8px 14px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 0.92rem;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .cp-shell-cta-mobile:hover { background: var(--primary-light); text-decoration: none; }
-  .cp-shell-nav {
-    width: 100%;
-    gap: 0 20px;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    margin-top: 8px;
-    padding-bottom: 4px;
-  }
-  .cp-shell-nav .cp-shell-cta { display: none; }
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compass Place | Frequently Asked Questions</title>
+  <meta name="description" content="Frequently asked questions about Compass Place senior living guidance.">
+  <link rel="canonical" href="https://compassplace.com/faq">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="/cp-shell.js"></script>
+  <style>
+    :root {
+      --color-bg: #FAFAF7;
+      --color-primary: #2B5F4E;
+      --color-primary-light: #3A7D66;
+      --color-text: #2C2C2C;
+      --color-text-secondary: #6B6B6B;
+      --color-border: #E5E2DC;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, sans-serif;
+      --max-width: 780px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .faq-container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .faq-container h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--color-primary);
+      margin-bottom: 8px;
+    }
+    .faq-container .subtitle {
+      color: var(--color-text-secondary);
+      margin-bottom: 36px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+      padding: 20px 0;
+    }
+    .faq-item:first-of-type { border-top: 1px solid var(--color-border); }
+    .faq-q {
+      font-weight: 600;
+      font-size: 1.05rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font-body);
+      color: var(--color-text);
+      padding: 0;
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: var(--color-primary);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+    .faq-q.open::after { content: '−'; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      color: var(--color-text-secondary);
+      font-size: 0.95rem;
+    }
+    .faq-a.open { max-height: 800px; }
+    .faq-a p { margin-top: 12px; }
+    .faq-contact {
+      margin-top: 40px;
+      padding: 24px;
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      text-align: center;
+    }
+    .faq-contact p { color: var(--color-text-secondary); margin-bottom: 8px; }
+    .faq-contact a { color: var(--color-primary); font-weight: 600; text-decoration: none; }
+    .faq-contact a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
 
-<header class="cp-shell-header" data-cp-shell="header">
-  <div class="cp-shell-inner">
-    <a class="cp-shell-brand" href="https://compassplace.com/">Compass Place</a>
-    <a class="cp-shell-cta-mobile" href="https://compassplace.com/get/">Get the App</a>
-    <nav class="cp-shell-nav" aria-label="Primary">
-      <a href="https://compassplace.com/senior-living/">Senior Living</a>
-      <a href="https://compassplace.com/resources/">Resources</a>
-      <a href="https://compassplace.com/faq/">FAQ</a>
-      <a href="https://compassplace.com/get/" class="cp-shell-cta">Get the App</a>
-    </nav>
-  </div>
-</header>
+  <div id="cp-header"></div>
 
-<main class="cp-shell-main">
-<section class="faq-container">
-    <h1>Frequently Asked Questions</h1>
-    <p class="subtitle">Please reach out to us if you cannot find an answer to your question.</p>
+  <main>
+    <section class="faq-container">
+      <h1>Frequently Asked Questions</h1>
+      <p class="subtitle">Honest answers about how Compass Place works.</p>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            What is Compass Place?
+          Who is Compass Place for?
         </button>
         <div class="faq-a">
-            <p>Compass Place is a decision support platform designed to help families navigate senior living with clarity and confidence.</p>
-            <p>We help adult children understand care needs, compare communities thoughtfully, and move forward at their own pace. Our focus is not on speed or volume. It is on fit.</p>
+          <p>Compass Place is built for adult children who are helping a parent or loved one explore senior living.</p>
+          <p>Many of our users are managing this decision for the first time, feeling overwhelmed by options, unsure what level of care is actually needed, concerned about making the wrong choice, or cautious of sales pressure.</p>
+          <p>Compass Place exists to reduce confusion, not add to it.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            Who is Compass Place for?
+          How is Compass Place different from large senior care referral websites?
         </button>
         <div class="faq-a">
-            <p>Compass Place is built for adult children who are helping a parent or loved one explore senior living.</p>
-            <p>Many of our users are managing this decision for the first time, feeling overwhelmed by options, unsure what level of care is actually needed, concerned about making the wrong choice, or cautious of sales pressure.</p>
-            <p>Compass Place exists to reduce confusion, not add to it.</p>
+          <p>Most large national services are referral marketplaces. Their primary function is to connect families with communities and facilitate placement.</p>
+          <p>Compass Place is different in three important ways.</p>
+          <p>First, we are fit first, not placement first. Our goal is to help families eliminate poor matches and understand tradeoffs before choosing.</p>
+          <p>Second, communities cannot pay for better placement, higher scores, or greater visibility. Rankings are based on care needs, safety, quality indicators, and practical fit. Payment does not influence results.</p>
+          <p>Third, we do not share your contact information broadly. Nothing is shared unless you explicitly request a tour or introduction.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            How is Compass Place different from large senior care referral websites?
+          Why do some services feel so high pressure?
         </button>
         <div class="faq-a">
-            <p>Most large national services are referral marketplaces. Their primary function is to connect families with communities and facilitate placement.</p>
-            <p>Compass Place is different in three important ways.</p>
-            <p>First, we are fit first, not placement first. Our goal is to help families eliminate poor matches and understand tradeoffs before choosing.</p>
-            <p>Second, communities cannot pay for better placement, higher scores, or greater visibility. Rankings are based on care needs, safety, quality indicators, and practical fit. Payment does not influence results.</p>
-            <p>Third, we do not share your contact information broadly. Nothing is shared unless you explicitly request a tour or introduction.</p>
+          <p>Many families are surprised to learn that submitting their information on some sites can trigger outreach from multiple communities or sales representatives.</p>
+          <p>That approach works for fast placement. It does not work well for thoughtful decision making.</p>
+          <p>Compass Place is designed for families who want guidance without pressure. Nothing happens until you decide it should.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            Why do some services feel so high pressure?
+          Does Compass Place share my contact information?
         </button>
         <div class="faq-a">
-            <p>Many families are surprised to learn that submitting their information on some sites can trigger outreach from multiple communities or sales representatives.</p>
-            <p>That approach works for fast placement. It does not work well for thoughtful decision making.</p>
-            <p>Compass Place is designed for families who want guidance without pressure. Nothing happens until you decide it should.</p>
+          <p>No.</p>
+          <p>Compass Place does not share your contact information with senior living communities unless you explicitly request a tour or introduction.</p>
+          <p>You stay in control of when and how contact happens.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            Does Compass Place share my contact information?
+          How does Compass Place make money?
         </button>
         <div class="faq-a">
-            <p>No.</p>
-            <p>Compass Place does not share your contact information with senior living communities unless you explicitly request a tour or introduction.</p>
-            <p>You stay in control of when and how contact happens.</p>
+          <p>Compass Place is free for families.</p>
+          <p>If a family chooses a community and a resident moves in, that community may pay Compass Place a Placement Support Fee. This fee is paid only after a contract or lease is signed and the move-in occurs.</p>
+          <p>The fee does not affect rankings, scores, or visibility. It does not influence recommendations, and it varies by community.</p>
+          <p>Our guidance is never for sale.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            How does Compass Place make money?
+          How do rankings work?
         </button>
         <div class="faq-a">
-            <p>Compass Place is free for families.</p>
-            <p>If a family chooses a community and a resident moves in, that community may pay Compass Place a Placement Support Fee. This fee is paid only after a contract or lease is signed and the move-in occurs.</p>
-            <p>The fee does not affect rankings, scores, or visibility. It does not influence recommendations, and it varies by community.</p>
-            <p>Our guidance is never for sale.</p>
+          <p>Rankings are based on how well each community fits a specific family's needs.</p>
+          <p>We evaluate communities using a wide range of factors, including care level alignment, safety and inspection history, quality indicators, practical considerations such as location and budget, and observed strengths and limitations.</p>
+          <p>All communities we have identified in a market are included in our database. We curate based on minimum care needs derived from user input, then rank based on overall fit.</p>
+          <p>There is no pay for placement.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            How do rankings work?
+          Do you show every senior living community?
         </button>
         <div class="faq-a">
-            <p>Rankings are based on how well each community fits a specific family's needs.</p>
-            <p>We evaluate communities using a wide range of factors, including care level alignment, safety and inspection history, quality indicators, practical considerations such as location and budget, and observed strengths and limitations.</p>
-            <p>All communities we have identified in a market are included in our database. We curate based on minimum care needs derived from user input, then rank based on overall fit.</p>
-            <p>There is no pay for placement.</p>
+          <p>Compass Place includes all communities we have identified in the market.</p>
+          <p>We do not exclude communities based on payment. We do apply minimum constraints based on a family's stated needs. For example, if a parent requires memory care, communities that do not offer memory care will not be presented.</p>
+          <p>The goal is relevance, not volume.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            Do you show every senior living community?
+          What if I am not ready to choose yet?
         </button>
         <div class="faq-a">
-            <p>Compass Place includes all communities we have identified in the market.</p>
-            <p>We do not exclude communities based on payment. We do apply minimum constraints based on a family's stated needs. For example, if a parent requires memory care, communities that do not offer memory care will not be presented.</p>
-            <p>The goal is relevance, not volume.</p>
+          <p>That is normal.</p>
+          <p>Many families use Compass Place to rule out poor fits, understand care options, or clarify priorities before making any decisions.</p>
+          <p>Eliminating bad fits is progress. You do not need to decide quickly to be moving forward.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            What if I am not ready to choose yet?
+          Is Compass Place replacing human guidance?
         </button>
         <div class="faq-a">
-            <p>That is normal.</p>
-            <p>Many families use Compass Place to rule out poor fits, understand care options, or clarify priorities before making any decisions.</p>
-            <p>Eliminating bad fits is progress. You do not need to decide quickly to be moving forward.</p>
+          <p>No.</p>
+          <p>Compass Place combines structured decision support with local human insight. The goal is to help families think more clearly, not to automate an emotional decision.</p>
+          <p>Guidance should feel grounded and contextual, not transactional.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            Is Compass Place replacing human guidance?
+          Where is Compass Place available?
         </button>
         <div class="faq-a">
-            <p>No.</p>
-            <p>Compass Place combines structured decision support with local human insight. The goal is to help families think more clearly, not to automate an emotional decision.</p>
-            <p>Guidance should feel grounded and contextual, not transactional.</p>
+          <p>Compass Place is launching in Hamilton County, Indiana in March.</p>
+          <p>We plan to expand into select markets beyond Indiana in 2026.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            Where is Compass Place available?
+          Is Compass Place affiliated with any senior living communities?
         </button>
         <div class="faq-a">
-            <p>Compass Place is launching in Hamilton County, Indiana in March.</p>
-            <p>We plan to expand into select markets beyond Indiana in 2026.</p>
+          <p>No.</p>
+          <p>Compass Place is independent. Communities cannot influence rankings, scores, or recommendations.</p>
+          <p>Our responsibility is to families first.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            Is Compass Place affiliated with any senior living communities?
+          What happens after a family chooses a community?
         </button>
         <div class="faq-a">
-            <p>No.</p>
-            <p>Compass Place is independent. Communities cannot influence rankings, scores, or recommendations.</p>
-            <p>Our responsibility is to families first.</p>
+          <p>If a family chooses a community and moves in, Compass Place checks in periodically to understand how things are going.</p>
+          <p>These check-ins help us learn, improve guidance, and support families over time.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
+      <div class="faq-item">
         <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            What happens after a family chooses a community?
+          What if I prefer not to use the app?
         </button>
         <div class="faq-a">
-            <p>If a family chooses a community and moves in, Compass Place checks in periodically to understand how things are going.</p>
-            <p>These check-ins help us learn, improve guidance, and support families over time.</p>
+          <p>Compass Place is designed to support families in the way that feels most comfortable to them.</p>
+          <p>While many families use the app to think through options on their own, others prefer a more personal approach. If you would rather talk things through, Compass Place offers access to a local Trail Guide in each market or geographic area.</p>
+          <p>Trail Guides are experienced senior care professionals who understand the local landscape. They can speak with you by phone or meet in person to discuss care needs, priorities, and questions in more detail.</p>
+          <p>Using Compass Place does not require you to navigate everything on your own. Guidance can be digital, human, or a combination of both.</p>
         </div>
-    </div>
+      </div>
 
-    <div class="faq-item">
-        <button class="faq-q" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
-            What if I prefer not to use the app?
-        </button>
-        <div class="faq-a">
-            <p>Compass Place is designed to support families in the way that feels most comfortable to them.</p>
-            <p>While many families use the app to think through options on their own, others prefer a more personal approach. If you would rather talk things through, Compass Place offers access to a local Trail Guide in each market or geographic area.</p>
-            <p>Trail Guides are experienced senior care professionals who understand the local landscape. They can speak with you by phone or meet in person to discuss care needs, priorities, and questions in more detail.</p>
-            <p>Using Compass Place does not require you to navigate everything on your own. Guidance can be digital, human, or a combination of both.</p>
-        </div>
-    </div>
-
-    <div class="faq-contact">
+      <div class="faq-contact">
         <p>Still have questions?</p>
-        <a href="/cdn-cgi/l/email-protection#3e5d5150505b5d4a7e5d51534e5f4d4d4e525f5d5b105d5153"><span class="__cf_email__" data-cfemail="f89b9796969d9b8cb89b979588998b8b8894999b9dd69b9795">[email&#160;protected]</span></a> · <a href="tel:3174266866">317-426-6866</a>
-    </div>
-</section>
-</main>
+        <a href="mailto:connect@compassplace.com">connect@compassplace.com</a> · <a href="tel:3174266866">317-426-6866</a>
+      </div>
+    </section>
+  </main>
 
-<footer class="cp-shell-footer" data-cp-shell="footer">
-  <div class="cp-shell-inner cp-shell-footer-inner">
-    <div class="cp-shell-brand cp-shell-brand-static">Compass Place</div>
-    <p class="cp-shell-tagline">Explore senior living privately, at your own pace.</p>
-    <div class="cp-shell-footer-links">
-      <a href="https://compassplace.com/">Home</a>
-      <a href="https://compassplace.com/senior-living/">Senior Living</a>
-      <a href="https://compassplace.com/resources/">Resources</a>
-      <a href="https://compassplace.com/faq/">FAQ</a>
-      <a href="https://compassplace.com/privacy-policy/">Privacy Policy</a>
-      <a href="https://compassplace.com/terms-of-service/">Terms of Service</a>
-      <a href="https://compassplace.com/get/">Get the App</a>
-    </div>
-  </div>
-</footer>
+  <div id="cp-footer"></div>
 
 </body>
 </html>
