@@ -59,13 +59,22 @@
         .footer-links a:hover { color: var(--color-primary); }
     
 /* Compass Place canonical shared shell */
+:root {
+  --primary: #2b5f4e;
+  --primary-light: #3a7d66;
+  --text: #2c2c2c;
+  --text-secondary: #6b6b6b;
+  --border: #e5e2dc;
+}
 .cp-shell-header,
-.cp-shell-footer,
+.cp-shell-footer {
+  box-sizing: border-box;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+}
 .cp-shell-header *,
 .cp-shell-footer * {
   box-sizing: border-box;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
-  letter-spacing: normal;
 }
 .cp-shell-header {
   position: sticky;
@@ -73,14 +82,14 @@
   z-index: 1000;
   width: 100%;
   background: #ffffff;
-  border-bottom: 1px solid #d8d2c8;
+  border-bottom: 1px solid var(--border);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
 }
 .cp-shell-footer {
   width: 100%;
   background: #ffffff;
-  border-top: 1px solid #d8d2c8;
+  border-top: 1px solid var(--border);
   margin-top: 12px;
 }
 .cp-shell-inner {
@@ -98,9 +107,9 @@
 .cp-shell-brand:link,
 .cp-shell-brand:visited {
   display: inline-block;
-  color: #1f5c4f !important;
+  color: var(--primary) !important;
   text-decoration: none !important;
-  font-size: 1.15rem !important;
+  font-size: 1.44rem !important;
   font-weight: 800 !important;
   line-height: 1.1 !important;
   letter-spacing: -0.02em !important;
@@ -114,24 +123,21 @@
 .cp-shell-nav a,
 .cp-shell-nav a:link,
 .cp-shell-nav a:visited {
-  color: #1d2733 !important;
+  color: var(--text) !important;
   text-decoration: none !important;
   font-size: 0.98rem !important;
   font-weight: 500 !important;
   line-height: 1.2 !important;
 }
-.cp-shell-nav a:hover {
-  text-decoration: underline !important;
-}
+.cp-shell-nav a:hover { text-decoration: underline !important; }
 .cp-shell-nav .cp-shell-cta,
 .cp-shell-nav .cp-shell-cta:link,
 .cp-shell-nav .cp-shell-cta:visited {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 40px;
   padding: 10px 14px;
-  background: #1f5c4f !important;
+  background: var(--primary) !important;
   color: #ffffff !important;
   border-radius: 999px;
   font-weight: 700 !important;
@@ -139,15 +145,13 @@
   text-decoration: none !important;
 }
 .cp-shell-nav .cp-shell-cta:hover {
-  background: #2f7b6b !important;
+  background: var(--primary-light) !important;
   text-decoration: none !important;
 }
-.cp-shell-footer-inner {
-  padding: 28px 0 40px;
-}
+.cp-shell-footer-inner { padding: 28px 0 40px; }
 .cp-shell-tagline {
   margin: 8px 0 0 !important;
-  color: #53606f !important;
+  color: var(--text-secondary) !important;
   font-size: 0.95rem !important;
   line-height: 1.5 !important;
 }
@@ -160,23 +164,47 @@
 .cp-shell-footer-links a,
 .cp-shell-footer-links a:link,
 .cp-shell-footer-links a:visited {
-  color: #53606f !important;
+  color: var(--text-secondary) !important;
   text-decoration: none !important;
   font-size: 0.95rem !important;
   line-height: 1.4 !important;
 }
-.cp-shell-footer-links a:hover {
-  text-decoration: underline !important;
-}
+.cp-shell-footer-links a:hover { text-decoration: underline !important; }
+/* Hide mobile CTA on desktop — must come BEFORE the media query so mobile can override */
+.cp-shell-cta-mobile { display: none; }
 @media (max-width: 860px) {
   .cp-shell-header .cp-shell-inner {
-    padding: 16px 0;
-    align-items: flex-start;
-    flex-direction: column;
+    padding: 12px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    row-gap: 0;
   }
+  /* Line 1: brand (left) + CTA button (right) */
+  /* Button height = 8px top + 8px bottom padding + ~17.6px line-height ≈ 34px */
+  .cp-shell-brand { flex: 1 1 auto; line-height: 34px; padding-top: 2px; }
+  .cp-shell-cta-mobile {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff !important;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .cp-shell-cta-mobile:hover { background: var(--primary-light); text-decoration: none; }
+  /* Line 2: the three text links */
   .cp-shell-nav {
-    gap: 12px 16px;
+    width: 100%;
+    gap: 0 20px;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-top: 8px;
+    padding-bottom: 4px;
   }
+  /* Hide desktop CTA inside nav on mobile */
+  .cp-shell-nav .cp-shell-cta { display: none; }
 }
 
 </style>
@@ -187,6 +215,7 @@
 <header class="cp-shell-header" data-cp-shell="header">
   <div class="cp-shell-inner">
     <a class="cp-shell-brand" href="https://compassplace.com/">Compass Place</a>
+    <a class="cp-shell-cta-mobile" href="https://compassplace.com/get/">Get the App</a>
     <nav class="cp-shell-nav" aria-label="Primary">
       <a href="https://compassplace.com/senior-living/">Senior Living</a>
       <a href="https://compassplace.com/resources/">Resources</a>
@@ -257,9 +286,9 @@
     <ul>
         <li>After you send <strong>STOP</strong>, we will send a confirmation and stop sending texts from that number.</li>
         <li><strong>Important:</strong> because SMS is required for account verification, opting out of SMS will prevent you from receiving verification codes and may prevent you from signing in until you opt back in.</li>
-        <li>You may opt back in by replying <strong>START</strong> or by contacting <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.</li>
+        <li>You may opt back in by replying <strong>START</strong> or by contacting <a href="/cdn-cgi/l/email-protection#ed8e828383888e99ad8e82809d8c9e9e9d818c8e88c38e8280"><span class="__cf_email__" data-cfemail="13707c7d7d76706753707c7e63726060637f7270763d707c7e">[email&#160;protected]</span></a>.</li>
     </ul>
-    <p>Reply <strong>HELP</strong> to any message for assistance, or contact <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.</p><h2>5. Tour Scheduling</h2>
+    <p>Reply <strong>HELP</strong> to any message for assistance, or contact <a href="/cdn-cgi/l/email-protection#1d7e727373787e695d7e72706d7c6e6e6d717c7e78337e7270"><span class="__cf_email__" data-cfemail="72111d1c1c17110632111d1f02130101021e1311175c111d1f">[email&#160;protected]</span></a>.</p><h2>5. Tour Scheduling</h2>
     <p>When you request a tour through Compass Place, we coordinate scheduling between you and the facility. If you have enabled optional SMS tour messaging, we may communicate scheduling details by SMS; otherwise, we may use in-app and/or push notifications where available:</p>
     <ul>
         <li>We may send an SMS to the facility's designated contact person on your behalf</li>
@@ -367,7 +396,7 @@
 
     <h2>19. Contact Us</h2>
     <p><strong>Fletcher Street Corporation</strong><br>
-    Email: <a href="mailto:connect@compassplace.com">connect@compassplace.com</a></p>
+    Email: <a href="/cdn-cgi/l/email-protection#57343839393234231734383a27362424273b3634327934383a"><span class="__cf_email__" data-cfemail="b4d7dbdadad1d7c0f4d7dbd9c4d5c7c7c4d8d5d7d19ad7dbd9">[email&#160;protected]</span></a></p>
     <p><em>Thank you for using Compass Place. We're here to help you find the right care for your loved one.</em></p>
 </article>
 
@@ -378,16 +407,4 @@
     <p class="cp-shell-tagline">Explore senior living privately, at your own pace.</p>
     <div class="cp-shell-footer-links">
       <a href="https://compassplace.com/">Home</a>
-      <a href="https://compassplace.com/senior-living/">Senior Living</a>
-      <a href="https://compassplace.com/resources/">Resources</a>
-      <a href="https://compassplace.com/faq/">FAQ</a>
-      <a href="https://compassplace.com/privacy-policy/">Privacy Policy</a>
-      <a href="https://compassplace.com/terms-of-service/">Terms of Service</a>
-      <a href="https://compassplace.com/get/">Get the App</a>
-    </div>
-  </div>
-</footer>
-
-
-</body>
-</html>
+      <a href="https://co
