@@ -14,6 +14,10 @@
 
   /* ─── STYLES ────────────────────────────────────────────────────────────── */
   const CSS = `
+    /* Reserve scrollbar space on every page so header alignment is identical
+       whether or not the page content is tall enough to scroll */
+    html { scrollbar-gutter: stable; }
+
     .cp-header,
     .cp-footer {
       box-sizing: border-box;
