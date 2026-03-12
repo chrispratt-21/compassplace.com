@@ -452,6 +452,11 @@ footer {
 footer a { color: rgba(255,255,255,.8); }
 footer strong { color: #fff; }
 
+/* ── CTA SECTION OVERRIDES ── */
+.section-cta p,
+.section-cta div,
+.section-cta strong { color: inherit; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 700px) {
   nav { padding: 0 16px; height: 52px; }
@@ -508,10 +513,12 @@ footer strong { color: #fff; }
         <span class="pill-label">Support</span>
         <strong>(317) 426-6866</strong>
       </div>
-      <div class="pill">
+      <div class="pill" style="flex-direction:column;align-items:flex-start;gap:2px;">
         <span class="pill-label">Availability texts from</span>
-        <strong>(888) 910-6866</strong>
-        <span style="font-size:.82rem;color:var(--muted);">save as "Compass Place"</span>
+        <div style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;">
+          <strong>(888) 910-6866</strong>
+          <span style="font-size:.82rem;color:var(--muted);white-space:nowrap;">save as "Compass Place"</span>
+        </div>
       </div>
     </div>
   </section>
@@ -703,7 +710,7 @@ footer strong { color: #fff; }
   </section>
 
   <!-- SECTION 4: GETTING STARTED -->
-  <section class="section" style="background: var(--brand); border-color: var(--brand-dark);">
+  <section class="section section-cta" style="background: var(--brand); border-color: var(--brand-dark); color: #fff;">
     <div style="display:flex; align-items:flex-start; gap:24px; flex-wrap:wrap;">
       <div style="flex:1; min-width:260px;">
         <div class="eyebrow" style="color:rgba(255,255,255,.6);">Questions or changes</div>
