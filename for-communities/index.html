@@ -454,10 +454,33 @@ footer strong { color: #fff; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 700px) {
-  .hero { padding: 32px 24px 28px; }
-  .section { padding: 28px 22px 24px; }
-  .care-grid { grid-template-columns: 1fr; }
-  .contact-pills { flex-direction: column; }
+  nav { padding: 0 16px; height: 52px; }
+  .nav-logo-text { font-size: 1rem; }
+  main { padding: 20px 14px 72px; }
+  .hero { padding: 28px 20px 24px; border-radius: 20px; }
+  .hero h1 { font-size: 1.85rem; margin-bottom: 14px; }
+  .hero p.lead { font-size: 1rem; }
+  .section { padding: 24px 18px 20px; border-radius: 20px; margin-top: 16px; }
+  .section-header { gap: 12px; margin-bottom: 20px; }
+  .section-icon { width: 40px; height: 40px; font-size: 18px; border-radius: 11px; }
+  .section-title h2 { font-size: 1.35rem; }
+  .care-grid { grid-template-columns: 1fr; gap: 8px; }
+  .contact-pills { flex-direction: column; gap: 8px; }
+  .pill { padding: 12px 16px; font-size: .95rem; border-radius: 14px; }
+  .concept-list li { padding: 14px 14px; font-size: .95rem; }
+  .sms-demo { padding: 18px 16px; border-radius: 14px; font-size: .9rem; }
+  .tour-step { gap: 12px; }
+  .step-num { width: 28px; height: 28px; font-size: .8rem; flex-shrink: 0; margin-top: 2px; }
+  .step-body strong { font-size: 1rem; }
+  .step-body p { font-size: .93rem; }
+  .browser-demo { border-radius: 14px; margin: 18px 0; }
+  .browser-url { font-size: .72rem; }
+  .msg { max-width: 90%; font-size: .87rem; }
+  .callout { padding: 16px; font-size: .93rem; border-radius: 12px; }
+  .divider { margin: 20px 0; }
+  footer { padding: 24px 16px; font-size: .85rem; margin-top: 40px; }
+  /* CTA section stacks nicely */
+  .section:last-of-type > div { flex-direction: column; gap: 20px; }
 }
 </style>
 </head>
@@ -478,7 +501,7 @@ footer strong { color: #fff; }
   <section class="hero">
     <div class="eyebrow">Community Partner Guide</div>
     <h1>How we work together</h1>
-    <p class="lead">Compass Place connects families with senior care communities that are the right fit. The more current your availability information, the better we can match families to your community , and the less time everyone spends on tours that don't work out.</p>
+    <p class="lead">Compass Place connects families with senior care communities that are the right fit. The more current your availability information, the better we can match families to your community , and the less time everyone spends on placements that don't work out.</p>
     <p class="lead" style="margin-bottom: 20px;">We keep things simple. Most of what we need from you happens over text message , no apps, no logins, no portals.</p>
     <div class="contact-pills">
       <div class="pill">
