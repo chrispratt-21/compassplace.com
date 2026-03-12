@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Communities | Compass Place</title>
+<meta name="description" content="How to work with Compass Place , availability updates, tour coordination, and family communication." />
+<link rel="canonical" href="https://compassplace.com/for-communities/" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f6f3ee;
+  --surface: #ffffff;
+  --card: #f3efe8;
+  --text: #1d2733;
+  --muted: #53606f;
+  --line: #ded7cc;
+  --brand: #1f5c4f;
+  --brand-dark: #17473d;
+  --brand-light: #e8f2ef;
+  --warm: #ece6dd;
+  --accent: #c8853a;
+  --max: 1080px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+a { color: var(--brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ── NAV ── */
+nav {
+  background: var(--brand);
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 58px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,.18);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-icon {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,.15);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px;
+}
+.nav-logo-text {
+  font-family: 'Lora', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.nav-tag {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-left: 2px;
+}
+
+/* ── LAYOUT ── */
+main { padding: 44px 24px 88px; }
+.container { max-width: var(--max); margin: 0 auto; }
+
+/* ── HERO ── */
+.hero {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 52px 48px 44px;
+  box-shadow: 0 10px 40px rgba(20,24,28,.06);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(31,92,79,.08) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.eyebrow {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--brand);
+  margin-bottom: 14px;
+}
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  color: var(--text);
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+.hero p.lead {
+  font-size: 1.1rem;
+  color: #374858;
+  max-width: 620px;
+  margin-bottom: 28px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.contact-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font-size: .88rem;
+  font-weight: 500;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+}
+.pill .pill-label {
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.pill strong { font-weight: 600; }
+
+/* ── SECTION ── */
+.section {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 40px 44px 36px;
+  margin-top: 28px;
+  box-shadow: 0 6px 24px rgba(20,24,28,.04);
+}
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+.section-icon {
+  width: 48px; height: 48px; flex-shrink: 0;
+  background: var(--brand-light);
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+}
+.section-title h2 {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: -.025em;
+  line-height: 1.15;
+  margin-bottom: 4px;
+}
+.section-title p {
+  color: var(--muted);
+  font-size: .95rem;
+}
+.section p {
+  color: #334255;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+.section p:last-child { margin-bottom: 0; }
+
+/* ── SMS DEMO ── */
+.sms-demo {
+  background: #1a1a2e;
+  border-radius: 18px;
+  padding: 20px 22px;
+  margin: 22px 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: .92rem;
+  color: #e8e8f0;
+  line-height: 1.8;
+  position: relative;
+}
+.sms-demo::before {
+  content: 'SMS';
+  position: absolute;
+  top: 10px; right: 14px;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  color: rgba(255,255,255,.25);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.sms-demo .sms-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-bottom: 10px;
+}
+.sms-example {
+  color: #7dd8b8;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* ── CONCEPT BULLETS ── */
+.concept-list {
+  list-style: none;
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.concept-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: .97rem;
+  color: #334255;
+  line-height: 1.5;
+}
+.concept-list li .concept-tag {
+  flex-shrink: 0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: .82rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-top: 1px;
+}
+.tag-positive { background: #dcfce7; color: #166534; }
+.tag-waitlist { background: #fee2e2; color: #991b1b; }
+.tag-zero     { background: #f1f5f9; color: #475569; }
+.tag-code     { background: #ede9fe; color: #5b21b6; }
+.tag-format   { background: #fef3c7; color: #92400e; }
+
+/* ── CARE LEVEL GRID ── */
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 20px 0;
+}
+.care-chip {
+  padding: 12px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: .88rem;
+}
+.care-chip .code {
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-weight: 700;
+  font-size: .92rem;
+  color: var(--brand);
+  display: block;
+  margin-bottom: 2px;
+}
+.care-chip .name {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+/* ── TOUR CODE DEMO ── */
+.tour-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 20px 0;
+}
+.tour-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 32px; height: 32px; flex-shrink: 0;
+  background: var(--brand);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .85rem;
+  font-weight: 700;
+}
+.step-body { flex: 1; }
+.step-body strong { display: block; margin-bottom: 3px; font-size: .97rem; }
+.step-body p { font-size: .92rem; color: var(--muted); margin: 0; }
+
+/* ── BROWSER DEMO ── */
+.browser-demo {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 24px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,.08);
+}
+.browser-bar {
+  background: #f0ece5;
+  border-bottom: 1px solid var(--line);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.browser-dots { display: flex; gap: 5px; }
+.browser-dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #fc635d; }
+.dot-y { background: #fdbc40; }
+.dot-g { background: #35cd4b; }
+.browser-url {
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: .78rem;
+  color: var(--muted);
+  font-family: 'SF Mono', monospace;
+}
+.conversation-area {
+  background: #f8f6f3;
+  padding: 20px;
+}
+.conv-header {
+  background: var(--brand);
+  color: #fff;
+  padding: 12px 18px;
+  font-size: .88rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.conv-header .conv-facility { font-size: .78rem; opacity: .75; font-weight: 400; }
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  background: #f8f6f3;
+  min-height: 180px;
+}
+.msg {
+  max-width: 78%;
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: .88rem;
+  line-height: 1.5;
+}
+.msg-system {
+  align-self: center;
+  background: transparent;
+  color: var(--muted);
+  font-size: .78rem;
+  text-align: center;
+  max-width: 100%;
+  padding: 4px 0;
+}
+.msg-inbound {
+  align-self: flex-end;
+  background: var(--brand);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.msg-outbound {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 4px;
+}
+.msg-meta { font-size: .72rem; opacity: .6; margin-top: 3px; }
+.msg-input-bar {
+  background: #fff;
+  border-top: 1px solid var(--line);
+  padding: 10px 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.msg-input-bar .input-fake {
+  flex: 1;
+  background: #f0ece5;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+/* ── CALLOUT ── */
+.callout {
+  background: var(--brand-light);
+  border: 1px solid #b8d8d0;
+  border-radius: 16px;
+  padding: 18px 20px;
+  margin: 20px 0;
+  font-size: .95rem;
+  color: #1d3830;
+  line-height: 1.65;
+}
+.callout strong { color: var(--brand-dark); }
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 28px 0;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--brand-dark);
+  color: rgba(255,255,255,.65);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: .88rem;
+  margin-top: 60px;
+}
+footer a { color: rgba(255,255,255,.8); }
+footer strong { color: #fff; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .hero { padding: 32px 24px 28px; }
+  .section { padding: 28px 22px 24px; }
+  .care-grid { grid-template-columns: 1fr; }
+  .contact-pills { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">
+    <div class="nav-logo-icon">🧭</div>
+    <span class="nav-logo-text">Compass Place</span>
+  </a>
+  <span class="nav-tag">/ For Communities</span>
+</nav>
+
+<main>
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Community Partner Guide</div>
+    <h1>How we work together</h1>
+    <p class="lead">Compass Place connects families with senior care communities that are the right fit. The more current your availability information, the better we can match families to your community , and the less time everyone spends on placements that don't work out.</p>
+    <p class="lead" style="margin-bottom: 20px;">We keep things simple. Most of what we need from you happens over text message , no apps, no logins, no portals.</p>
+    <div class="contact-pills">
+      <div class="pill">
+        <span class="pill-label">Support</span>
+        <strong>(317) 426-6866</strong>
+      </div>
+      <div class="pill">
+        <span class="pill-label">Availability texts from</span>
+        <strong>(888) 910-6866</strong>
+        <span style="font-size:.82rem;color:var(--muted);">save as "Compass Place"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 1: AVAILABILITY -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📋</div>
+      <div class="section-title">
+        <h2>Availability updates</h2>
+        <p>A quick text keeps our data fresh and families informed</p>
+      </div>
+    </div>
+
+    <p>Each week , typically on Monday mornings , you'll receive a text from <strong>(888) 910-6866</strong> asking for your current availability. Simply reply to that message with your counts for each care level you offer.</p>
+
+    <p>You can also send us an update any time something changes , a bed opens up, a waitlist clears, or your census shifts mid-week. Just text us the same format and we'll update your listing right away.</p>
+
+    <div class="sms-demo">
+      <div class="sms-label">Example availability reply</div>
+      <div class="sms-example">AL2 MC-1</div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:1.15rem;margin:24px 0 12px;letter-spacing:-.01em;">Care level codes</h3>
+    <div class="care-grid">
+      <div class="care-chip"><span class="code">IL</span><span class="name">Independent Living</span></div>
+      <div class="care-chip"><span class="code">AL</span><span class="name">Assisted Living</span></div>
+      <div class="care-chip"><span class="code">MC</span><span class="name">Memory Care</span></div>
+      <div class="care-chip"><span class="code">SNF</span><span class="name">Skilled Nursing: Female Semi-Private</span></div>
+      <div class="care-chip"><span class="code">SNM</span><span class="name">Skilled Nursing: Male Semi-Private</span></div>
+      <div class="care-chip"><span class="code">SNP</span><span class="name">Skilled Nursing , Private</span></div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:1.15rem;margin:24px 0 12px;letter-spacing:-.01em;">How numbers work</h3>
+    <ul class="concept-list">
+      <li>
+        <span class="concept-tag tag-positive">+4</span>
+        <div>A <strong>positive number</strong> means that many spots are currently available. <em>Example: AL4 means 4 Assisted Living spots open.</em></div>
+      </li>
+      <li>
+        <span class="concept-tag tag-zero">0</span>
+        <div>A <strong>zero</strong> means that care level is currently full with no waitlist. <em>Example: MC0 means Memory Care is full.</em></div>
+      </li>
+      <li>
+        <span class="concept-tag tag-waitlist">−3</span>
+        <div>A <strong>negative number</strong> means that many families are on the waitlist. <em>Example: SNF-3 means 3 families waiting for a Female Semi-Private Skilled Nursing bed.</em></div>
+      </li>
+    </ul>
+
+    <div class="callout">
+      <strong>You only need to send what changed.</strong> If your IL and AL counts are the same as last week, just send the care levels that are different. We'll keep the rest as-is. Partial updates are always accepted.
+    </div>
+
+    <p>The text is case-insensitive , <code style="background:var(--card);padding:1px 6px;border-radius:4px;font-size:.88em;">al4</code>, <code style="background:var(--card);padding:1px 6px;border-radius:4px;font-size:.88em;">AL4</code>, and <code style="background:var(--card);padding:1px 6px;border-radius:4px;font-size:.88em;">Al4</code> all work the same way.</p>
+  </section>
+
+  <!-- SECTION 2: TOURS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">📅</div>
+      <div class="section-title">
+        <h2>Tour coordination</h2>
+        <p>Simple text-based scheduling with no back-and-forth</p>
+      </div>
+    </div>
+
+    <p>When a family wants to tour your community, we'll send you a text with a tour request. You can reply with your available times, and we'll confirm with the family. Once a tour is confirmed, you'll receive a confirmation text that includes a short tour code.</p>
+
+    <h3 style="font-family:'Lora',serif;font-size:1.15rem;margin:24px 0 12px;letter-spacing:-.01em;">The tour code</h3>
+    <p>Every confirmed tour has a unique 4-character code , a mix of letters and numbers, like <code style="background:var(--card);padding:1px 6px;border-radius:4px;font-size:.88em;">jh43</code> or <code style="background:var(--card);padding:1px 6px;border-radius:4px;font-size:.88em;">m7r2</code>. This code ties all communication about that tour together so nothing gets lost.</p>
+
+    <ul class="concept-list">
+      <li>
+        <span class="concept-tag tag-code">Code</span>
+        <div>Always <strong>4 characters</strong>, any combination of letters and numbers. You'll see it in every message related to that tour.</div>
+      </li>
+    </ul>
+
+    <div class="sms-demo" style="margin-top:20px;">
+      <div class="sms-label">Example tour time proposal</div>
+      <div class="sms-example">df54 3/22 9am</div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h3 style="font-family:'Lora',serif;font-size:1.15rem;margin:0 0 16px;letter-spacing:-.01em;">How a typical tour goes</h3>
+    <div class="tour-steps">
+      <div class="tour-step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <strong>We reach out</strong>
+          <p>You receive a text from (888) 910-6866 with the family's name, care level interest, and preferred date range.</p>
+        </div>
+      </div>
+      <div class="tour-step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <strong>You reply with a proposed time</strong>
+          <p>Text back the tour code followed by your proposed date and time (e.g. <strong>df54 3/22 9am</strong>). To decline, reply DECLINE. We will handle confirming with the family.</p>
+        </div>
+      </div>
+      <div class="tour-step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <strong>Tour confirmed</strong>
+          <p>Once the family confirms, you'll get a final confirmation with the tour code, date, time, and the family contact's name.</p>
+        </div>
+      </div>
+      <div class="tour-step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <strong>If the family needs to reschedule</strong>
+          <p>You will receive a new text with times the family is proposing. Reply the same way: tour code, date, and time. If none of the times work, reply DECLINE and we will keep working on it.</p>
+        </div>
+      </div>
+      <div class="tour-step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <strong>If you need to reschedule</strong>
+          <p>Text us at (317) 426-6866 and a real person will help coordinate a new time with the family. We are working on a more direct solution for this and will update this guide when it is ready.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: FAMILY COMMUNICATION -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-icon">💬</div>
+      <div class="section-title">
+        <h2>Family communication</h2>
+        <p>See what families see , and how you fit in</p>
+      </div>
+    </div>
+
+    <p>Families use the Compass Place app to browse communities, compare fit, schedule tours, and communicate with our team. You won't need to use the app directly , but it helps to understand how the experience works on their end.</p>
+
+    <p>When a family sends a message or a tour gets scheduled, our team manages the coordination between both sides. You'll receive the relevant details over text. If a conversation thread has history you'd like to reference, we include a link in our texts that opens directly in your browser , no account required.</p>
+
+    <div class="browser-demo">
+      <div class="browser-bar">
+        <div class="browser-dots">
+          <div class="browser-dot dot-r"></div>
+          <div class="browser-dot dot-y"></div>
+          <div class="browser-dot dot-g"></div>
+        </div>
+        <div class="browser-url">compassplace.com/tours/jh43</div>
+      </div>
+      <div class="conv-header">
+        <span>🧭</span>
+        <div>
+          <div>Compass Place , Tour Thread</div>
+          <div class="conv-facility">M: Sage Haven Memory Lodge · Code: jh43</div>
+        </div>
+      </div>
+      <div class="messages">
+        <div class="msg msg-system">Tour requested · Mar 4 · Preferred: Mar 5-12</div>
+        <div class="msg msg-outbound">
+          Hi Summer , we have a family interested in touring for Memory Care. Are you available Mar 6 or Mar 7?
+          <div class="msg-meta">Compass Place · Mar 4 6:50 PM</div>
+        </div>
+        <div class="msg msg-inbound">
+          Friday Mar 6 at 9am works great!
+          <div class="msg-meta">Summer · Mar 5 8:36 AM</div>
+        </div>
+        <div class="msg msg-outbound">
+          Tour confirmed: Chris will arrive Friday Mar 6 at 9:00 AM. Tour code: jh43.
+          <div class="msg-meta">Compass Place · Mar 5 7:30 PM</div>
+        </div>
+        <div class="msg msg-inbound">
+          Should I bring my mom with me?
+          <div class="msg-meta">Chris (family) · Mar 5 8:17 PM</div>
+        </div>
+        <div class="msg msg-outbound">
+          Please do!
+          <div class="msg-meta">Summer · Mar 6 10:56 AM</div>
+        </div>
+      </div>
+      <div class="msg-input-bar">
+        <div class="input-fake">Type a message...</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>You're always in the loop.</strong> Every text we send you includes context about which family and which tour it relates to. You'll never wonder who's who , we include the resident's name, the family contact's name, and the tour code in every message.
+    </div>
+
+    <p>Families may also leave reviews of your community after a tour or placement. Reviews are moderated by our team before they're published, and they factor into how your community appears to future families searching in your area.</p>
+  </section>
+
+  <!-- SECTION 4: GETTING STARTED -->
+  <section class="section" style="background: var(--brand); border-color: var(--brand-dark);">
+    <div style="display:flex; align-items:flex-start; gap:24px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:260px;">
+        <div class="eyebrow" style="color:rgba(255,255,255,.6);">Questions or changes</div>
+        <h2 style="font-family:'Lora',serif;font-size:1.7rem;color:#fff;letter-spacing:-.025em;margin:8px 0 12px;">We're reachable by text</h2>
+        <p style="color:rgba(255,255,255,.8);font-size:1rem;margin:0;">If you ever have a question, need to update your contact info, or want to let us know about a change at your community, just text us at <strong style="color:#fff;">(317) 426-6866</strong>. A real person will respond.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;min-width:220px;">
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 18px;">
+          <div style="font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;">Support line</div>
+          <div style="color:#fff;font-weight:600;font-size:1.05rem;">(317) 426-6866</div>
+        </div>
+        <div style="background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:14px 18px;">
+          <div style="font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:4px;">Save as "Compass Place"</div>
+          <div style="color:#fff;font-weight:600;font-size:1.05rem;">(888) 910-6866</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <strong>Compass Place</strong> &nbsp;·&nbsp; <a href="/">compassplace.com</a> &nbsp;·&nbsp; Questions? Text us at (317) 426-6866
+</footer>
+
+</body>
+</html>
