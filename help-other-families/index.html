@@ -223,13 +223,24 @@
 
     .checkbox-row {
       display: grid;
-      gap: 10px;
-      margin-top: 10px;
+      gap: 12px;
+      margin-top: 12px;
     }
 
-    .checkbox-row label {
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
       font-weight: 500;
-      margin-bottom: 0;
+      color: var(--color-text);
+      line-height: 1.5;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0 0;
+      flex: 0 0 18px;
     }
 
     .privacy-box {
@@ -378,9 +389,10 @@
           </div>
 
           <div>
-            <label for="relationship">Your relationship</label>
+            <label for="relationship">Your connection to this story</label>
             <select id="relationship" name="relationship" required>
               <option value="">Select one</option>
+	      <option value="self">It's me</option>
               <option value="adult_child">Adult child</option>
               <option value="spouse">Spouse</option>
               <option value="other_relative">Other relative</option>
@@ -448,29 +460,32 @@
         </div>
 
         <div class="privacy-box">
-          <strong>Shared carefully</strong>
-          <p class="muted" style="margin: 8px 0 14px;">
-            We do not display resident names or family names. Stories may be reviewed, anonymized,
-            and summarized to help other families and improve the guidance Compass Place provides.
-          </p>
+  <strong>Shared carefully</strong>
+  <p class="muted" style="margin: 8px 0 14px;">
+    We do not display resident names or family names. Stories may be reviewed, anonymized,
+    and summarized to help other families and improve the guidance Compass Place provides.
+  </p>
 
-          <div class="checkbox-row">
-            <label>
-              <input type="checkbox" id="allow_anonymous_summary" name="allow_anonymous_summary" />
-              You may summarize my story anonymously
-            </label>
-            <label>
-              <input type="checkbox" id="allow_followup" name="allow_followup" />
-              You may contact me if clarification would help
-            </label>
-          </div>
-        </div>
+  <div class="checkbox-row">
+    <label class="checkbox-item" for="allow_anonymous_summary">
+      <input type="checkbox" id="allow_anonymous_summary" name="allow_anonymous_summary" />
+      <span>You may summarize my story anonymously</span>
+    </label>
 
-        <div style="margin-top: 24px;">
-          <button type="submit" class="btn btn-primary" id="submit-button">Submit Story</button>
-        </div>
+    <label class="checkbox-item" for="allow_followup">
+      <input type="checkbox" id="allow_followup" name="allow_followup" />
+      <span>You may contact me if clarification would help</span>
+    </label>
+  </div>
+</div>
 
-        <div id="form-status" class="status-message" aria-live="polite"></div>
+<div style="margin-top: 24px;">
+  <button type="submit" class="btn btn-primary" id="submit-button">Submit Story</button>
+</div>
+
+<div id="form-status" class="status-message" aria-live="polite"></div>
+
+
       </form>
     </div>
   </section>
