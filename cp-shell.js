@@ -191,6 +191,7 @@
         <nav class="cp-nav-links" aria-label="Primary">
           <a href="https://compassplace.com/senior-living/">Senior Living</a>
           <a href="https://compassplace.com/resources/">Resources</a>
+	  <a href="https://compassplace.com/tell-your-story/">Tell Your Story</a>
           <a href="https://compassplace.com/faq/">FAQ</a>
           <a href="https://compassplace.com/get/" class="cp-nav-cta">Get the App</a>
         </nav>
