@@ -10,8 +10,8 @@
     <meta property="og:site_name" content="Compass Place">
     <meta name="application-name" content="Compass Place">
     <meta name="apple-mobile-web-app-title" content="Compass Place">
-    <meta name="description" content="Compass Place helps families navigate senior living with clear guidance, local insight, and honest comparisons. Launching in Hamilton County, IN.">
-    <meta name="keywords" content="senior living, assisted living, senior care, Hamilton County, Indiana, Fishers, family guidance">
+    <meta name="description" content="Compass Place helps families navigate senior living with clear guidance, local insight, and honest comparisons. Launching in Columbus, OH.">
+    <meta name="keywords" content="senior living, assisted living, senior care, Hamilton County, Indiana, Fishers, Columbus, Ohio, family guidance">
     <meta property="og:title" content="Explore senior living privately, at your own pace.">
     <meta property="og:description" content="No pressure. Just clear guidance for families navigating senior living.">
     <meta property="og:type" content="website">
@@ -477,7 +477,7 @@
 </div>
 
     <div class="hero-content">
-        <div class="hero-badge">Launching in Hamilton County, Indiana in March - Expanding throughout 2026</div>
+        <div class="hero-badge">Launching in West Columbus, Ohio and Hamilton County, Indiana in April - Expanding throughout 2026</div>
         <h1>Explore senior living privately,<br class="desktop-break"> at your own pace.</h1>
         <p>No pressure. Just honest comparisons, local insight, and a calmer way to find the right fit for your loved one.</p>
         <a href="/get" class="hero-cta">Get Compass Place Free</a>
@@ -554,7 +554,7 @@
             </div>
             <div class="contact-detail">
                 <strong>Email</strong>
-                <p><a href="mailto:connect@compassplace.com">connect@compassplace.com</a></p>
+                <p><a href="/cdn-cgi/l/email-protection#e784888989828493a784888a97869494978b868482c984888a"><span class="__cf_email__" data-cfemail="1c7f737272797f685c7f73716c7d6f6f6c707d7f79327f7371">[email&#160;protected]</span></a></p>
             </div>
             <div class="contact-detail">
                 <strong>Hours</strong>
@@ -619,18 +619,35 @@
 <script>
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
     e.preventDefault();
+
     var form = this;
     var button = form.querySelector('button[type="submit"]');
+    var originalText = button.textContent;
+
     button.textContent = 'Sending...';
     button.disabled = true;
+
     fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { 'Accept': 'application/json' }
-    }).then(function(response) {
+    })
+    .then(function(response) {
         if (response.ok) {
             window.location.href = '/thank-you/';
         } else {
             alert('Oops! Something went wrong. Please try again.');
-            button.textContent = 'Send Message';
- 
+            button.textContent = originalText;
+            button.disabled = false;
+        }
+    })
+    .catch(function() {
+        alert('Oops! Something went wrong. Please try again.');
+        button.textContent = originalText;
+        button.disabled = false;
+    });
+});
+</script>
+
+</body>
+</html>
