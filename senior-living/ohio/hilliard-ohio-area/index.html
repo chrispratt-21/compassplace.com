@@ -12,7 +12,7 @@
   <meta property="og:url" content="https://compassplace.com/senior-living/ohio/hilliard-ohio-area/" />
   <meta property="og:site_name" content="Compass Place" />
   <script type="application/ld+json">
-  {
+{
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Senior Living in the Hilliard, Ohio Area | Compass Place",
@@ -20,7 +20,7 @@
   "url": "https://compassplace.com/senior-living/ohio/hilliard-ohio-area/",
   "about": {
     "@type": "Thing",
-    "name": "Senior living in the Hilliard, Ohio area"
+    "name": "the Hilliard, Ohio Area"
   },
   "hasPart": {
     "@type": "ItemList",
@@ -117,8 +117,11 @@
     a:hover { text-decoration: underline; }
     .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
     .hero, .section { padding: 28px 0; }
-    .hero-card, .card, .cta-block, .community-card, .notice { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
-    .hero-card, .card, .cta-block, .notice { padding: 28px; }
+    .hero-card, .card, .cta-block, .community-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); box-shadow: var(--shadow);
+    }
+    .hero-card, .card, .cta-block { padding: 28px; }
     .breadcrumb { font-size: 14px; color: var(--text-secondary); margin-bottom: 18px; }
     .breadcrumb a { color: var(--text-secondary); }
     .eyebrow { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.82rem; margin-bottom: 12px; }
@@ -126,50 +129,48 @@
     h1 { font-size: clamp(2rem, 4vw, 3.15rem); }
     h2 { font-size: clamp(1.45rem, 2.8vw, 2rem); }
     .subhead { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 12px; }
-    .hero-grid { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 24px; align-items: start; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; }
     .hero-copy p { margin: 0 0 14px; }
     .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 18px; }
     .stat { min-height: 138px; padding: 18px; border: 1px solid var(--border); border-radius: 14px; background: var(--muted); display: flex; flex-direction: column; }
     .stat-label { font-size: 12px; line-height: 1.35; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-secondary); }
     .stat-value { margin-top: auto; padding-top: 12px; text-align: center; font-size: 2rem; line-height: 1; font-weight: 700; color: var(--primary); }
-    .intro-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 22px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card p, .notice p, .cta-block p { margin: 0 0 12px; color: var(--text-secondary); }
-    .card p:last-child, .notice p:last-child, .cta-block p:last-child { margin-bottom: 0; }
-    .bullet-list { margin: 0; padding-left: 18px; color: var(--text-secondary); }
-    .bullet-list li { margin: 0 0 10px; }
+    .pill-list { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 18px 0 0; list-style: none; }
+    .pill-list li { padding: 8px 12px; border: 1px solid var(--border); background: #fff; border-radius: 999px; font-size: 0.92rem; color: var(--text); }
+    .section-intro { max-width: 800px; color: var(--text-secondary); margin: 0 0 22px; }
+    .city-block { margin-bottom: 28px; }
+    .city-heading { font-size: 1.35rem; color: var(--primary); margin-bottom: 14px; font-weight: 700; }
     .community-list { display: grid; gap: 18px; }
-    .community-card { display: grid; grid-template-columns: 170px 1fr; gap: 18px; align-items: start; padding: 18px; }
+    .community-card {
+      display: grid; grid-template-columns: 170px 1fr; gap: 18px; align-items: start; padding: 18px;
+    }
     .thumb img { width: 100%; height: 120px; object-fit: cover; border-radius: 14px; display: block; }
     .meta-top { display: flex; justify-content: space-between; gap: 16px; align-items: flex-start; }
     .name-wrap h3 { margin-bottom: 6px; }
     .micro { color: var(--text-secondary); font-size: 0.95rem; }
-    .score-badge { min-width: 155px; padding: 12px 14px; border-radius: 14px; background: var(--badge); border: 1px solid #d5e6de; text-align: left; }
+    .score-badge {
+      min-width: 155px; padding: 12px 14px; border-radius: 14px; background: var(--badge);
+      border: 1px solid #d5e6de; text-align: left;
+    }
     .score-badge .label { font-size: 12px; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.06em; }
     .score-badge .value { font-size: 1.35rem; font-weight: 700; color: var(--primary); }
     .care-tags { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 14px 0; }
     .care-tags li { padding: 7px 12px; border-radius: 999px; background: var(--muted); border: 1px solid var(--border); font-size: 0.94rem; }
-    .entry-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
+    .entry-links { display:flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; }
     .primary-link { font-weight: 700; }
-    .section-intro { max-width: 800px; color: var(--text-secondary); margin: 0 0 22px; }
-    .city-block { margin-bottom: 34px; }
-    .city-heading { font-size: 1.35rem; color: var(--primary); margin-bottom: 14px; }
-    .cta-button, .btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 700; }
-    .cta-button { margin-top: 8px; padding: 13px 20px; border-radius: 999px; background: var(--primary); color: #fff; }
+    .cta-block p { margin: 0 0 12px; color: var(--text-secondary); }
+    .cta-button {
+      display: inline-flex; align-items: center; justify-content: center; margin-top: 8px;
+      padding: 13px 20px; border-radius: 999px; background: var(--primary); color: #fff; font-weight: 700;
+    }
     .cta-button:hover { background: var(--primary-light); text-decoration: none; }
-    .cta-row { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
-    .btn { padding: 12px 16px; border-radius: 999px; border: 1px solid var(--primary); }
-    .btn-primary { background: var(--primary); color:#fff; }
-    .btn-primary:hover { background: var(--primary-light); text-decoration:none; }
-    .btn-secondary { background: transparent; color:var(--primary); }
-    .btn-secondary:hover { background:#f1f6f3; text-decoration:none; }
     .disclaimer { margin-top: 16px; font-size: 0.92rem; color: var(--text-secondary); }
-    @media (max-width: 860px) {
-      .hero-grid, .intro-grid, .community-card, .stats-grid, .grid-3 { grid-template-columns: 1fr; }
+    @media (max-width: 900px) {
+      .hero-grid, .community-card, .stats-grid { grid-template-columns: 1fr; }
       .meta-top { flex-direction: column; }
       .score-badge { min-width: 0; width: 100%; }
     }
-</style>
+  </style>
   <script src="/cp-shell.js"></script>
 </head>
 <body>
@@ -182,60 +183,35 @@
             <a href="https://compassplace.com/">Home</a> /
             <a href="https://compassplace.com/senior-living/">Senior Living</a> /
             <a href="https://compassplace.com/senior-living/ohio/">Ohio</a> /
-            The hilliard, ohio area
+            Hilliard, Ohio Area
           </div>
           <div class="hero-grid">
             <div class="hero-copy">
               <div class="eyebrow">Area page</div>
-              <h1>Senior living in the Hilliard, Ohio area</h1>
+              <h1>Senior Living in the Hilliard, Ohio Area</h1>
               <div class="subhead">Explore communities in and around Hilliard privately, at your own pace.</div>
-              <p>Compass Place helps families compare senior living options without forcing a phone call or a rushed decision. Use this page to review the communities currently included in our Ohio dataset for the Hilliard area, then open any profile for more detail.</p>
-              <p>This area works better as a local comparison set than a narrower city-only page because families often compare Hilliard alongside nearby west-side options.</p>
+              <p>The Hilliard area includes Hilliard and nearby west-side Columbus communities that families often compare together. This page is designed to make that local comparison set easier to scan before you move into individual community pages.</p>
+              <p>Compass Place helps families explore senior living privately, at their own pace, without pushing them into outreach before they are ready.</p>
+              <a class="cta-button" href="https://compassplace.com/get/">Explore Senior Living Privately</a>
             </div>
-            <div>
-              <div class="stats-grid">
-                <div class="stat">
-                  <div class="stat-label">Communities on this page</div>
-                  <div class="stat-value">11</div>
-                </div>
-                <div class="stat">
-                  <div class="stat-label">Compass Place scored</div>
-                  <div class="stat-value">5</div>
-                </div>
-                <div class="stat">
-                  <div class="stat-label">Medicare or N/A</div>
-                  <div class="stat-value">6</div>
-                </div>
-              </div>
+            <div class="card">
+              <h3>What you’ll find in the app</h3>
+              <ul class="pill-list">
+                <li>Private exploration</li>
+                <li>Side-by-side comparisons</li>
+                <li>Performance-based scoring</li>
+                <li>Local insight</li>
+                <li>Optional Trail Guide support</li>
+              </ul>
+              <p style="margin-top:18px;color:var(--text-secondary);">
+                Communities in this area may display a Compass Place Inspection Score, a Medicare rating, or N/A for IL-only communities where no public comparison score is displayed.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section">
-      <div class="container">
-        <div class="card intro-grid">
-          <div>
-            <h2>How to use this area page</h2>
-            <p>This is a local browsing page, not a lead form. It is meant to help families get oriented before deciding which community pages to review more closely or which communities to compare in the app.</p>
-            <ul class="bullet-list">
-              <li>Every community listed here links to its own canonical Compass Place profile.</li>
-              <li>This area currently includes communities in Columbus, Hilliard.</li>
-              <li>When a Compass Place score appears, it is shown on a 5-point scale. When a Medicare rating appears, it is labeled as Medicare’s overall rating.</li>
-            </ul>
-          </div>
-          <div>
-            <h2>What this page includes</h2>
-            <ul class="bullet-list">
-              <li>A practical local comparison set for families exploring the the Hilliard, Ohio area.</li>
-              <li>Communities grouped by city where that helps scanning.</li>
-              <li>Score badges where a Compass Place score or Medicare rating is available.</li>
-              <li>Links into full community pages for deeper review.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+
     <section class="section">
       <div class="container">
         <h2>Communities in this area</h2>
@@ -247,7 +223,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/bickford-of-upper-arlington-columbus-oh/"><img src="https://compassplace.com/logo-social.png" alt="Bickford of Upper Arlington community profile" /></a>
+                  <a href="https://compassplace.com/community/bickford-of-upper-arlington-columbus-oh/"><img src="https://bickfordseniorliving.com/wp-content/themes/bickford-build-3_2_0_6/library/img/Bickford-Cupola.jpg" alt="Bickford of Upper Arlington community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -271,7 +247,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/brookdale-trillium-crossing-columbus-oh/"><img src="https://compassplace.com/logo-social.png" alt="Brookdale Trillium Crossing community profile" /></a>
+                  <a href="https://compassplace.com/community/brookdale-trillium-crossing-columbus-oh/"><img src="https://images.brookdale.com/is/image/brookdaleprod/1-trillium-crossing-community-living-room:c1000x667?fmt=webp&amp;wid=1000&amp;qlt=100&amp;resMode=sharp" alt="Brookdale Trillium Crossing community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -295,7 +271,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/the-coventry-senior-living-columbus-oh/"><img src="https://compassplace.com/logo-social.png" alt="The Coventry Senior Living community profile" /></a>
+                  <a href="https://compassplace.com/community/the-coventry-senior-living-columbus-oh/"><img src="https://continentalseniorcommunities.com/system/files/styles/3_4/private/2023-12/the-coventry-photo-1.jpg" alt="The Coventry Senior Living community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -316,6 +292,7 @@
                   </div>
                 </div>
               </article>
+
             </div>
           </div>
 
@@ -325,7 +302,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/carriage-court-senior-living-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Carriage Court Senior Living community profile" /></a>
+                  <a href="https://compassplace.com/community/carriage-court-senior-living-hilliard-oh/"><img src="https://carriagecourthilliard.com/wp-content/uploads/sites/7/2024/06/436782890_1014819869998031_7713687315899910814_n-e1718376347725.jpg" alt="Carriage Court Senior Living community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -349,21 +326,21 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/darby-glenn-nursing-and-rehabilitation-center-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Darby Glenn Nursing & Rehabilitation Center community profile" /></a>
+                  <a href="https://compassplace.com/community/darby-glenn-nursing-and-rehabilitation-center-hilliard-oh/"><img src="https://darby-glenn.net/wp-content/uploads/sites/18/2024/12/darby1-1.jpg" alt="Darby Glenn Nursing &amp; Rehabilitation Center community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
                     <div class="name-wrap">
-                      <h3><a href="https://compassplace.com/community/darby-glenn-nursing-and-rehabilitation-center-hilliard-oh/">Darby Glenn Nursing & Rehabilitation Center</a></h3>
+                      <h3><a href="https://compassplace.com/community/darby-glenn-nursing-and-rehabilitation-center-hilliard-oh/">Darby Glenn Nursing &amp; Rehabilitation Center</a></h3>
                       <div class="micro">Hilliard, Ohio</div>
                     </div>
                     <div class="score-badge">
-                      <div class="label">Medicare Overall Rating</div>
+                      <div class="label">Medicare Rating</div>
                       <div class="value">5 / 5</div>
                     </div>
                   </div>
                   <ul class="care-tags"><li>Skilled Nursing</li></ul>
-                  <p>Darby Glenn Nursing & Rehabilitation Center is part of the current Compass Place comparison set for the Hilliard, Ohio area.</p>
+                  <p>Darby Glenn Nursing &amp; Rehabilitation Center is part of the current Compass Place comparison set for the Hilliard, Ohio area.</p>
                   <div class="micro">This is Medicare’s published overall nursing home rating. It applies to the skilled nursing portion of the community when that level of care is offered.</div>
                   <div class="entry-links">
                     <a class="primary-link" href="https://compassplace.com/community/darby-glenn-nursing-and-rehabilitation-center-hilliard-oh/">View community page</a>
@@ -373,7 +350,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/hilliard-assisted-living-and-memory-care-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Hilliard Assisted Living and Memory Care community profile" /></a>
+                  <a href="https://compassplace.com/community/hilliard-assisted-living-and-memory-care-hilliard-oh/"><img src="https://www.traditionsofhilliard.com/wp-content/uploads/2024/06/wc-environment.jpg" alt="Hilliard Assisted Living and Memory Care community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -397,7 +374,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/mill-run-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Mill Run community profile" /></a>
+                  <a href="https://compassplace.com/community/mill-run-hilliard-oh/"><img src="https://www.optalishealthcare.com/wp-content/uploads/slider/cache/cd4bfd20cd553355a3d769026d1dfb38/Image-2-3-scaled.jpg" alt="Mill Run community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -406,7 +383,7 @@
                       <div class="micro">Hilliard, Ohio</div>
                     </div>
                     <div class="score-badge">
-                      <div class="label">Medicare Overall Rating</div>
+                      <div class="label">Medicare Rating</div>
                       <div class="value">2 / 5</div>
                     </div>
                   </div>
@@ -421,7 +398,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/norwich-springs-health-campus-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Norwich Springs Health Campus community profile" /></a>
+                  <a href="https://compassplace.com/community/norwich-springs-health-campus-hilliard-oh/"><img src="https://trilogyhs.com/wp-content/uploads/2023/10/norwich-springs_800-x-600-px.png" alt="Norwich Springs Health Campus community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -430,7 +407,7 @@
                       <div class="micro">Hilliard, Ohio</div>
                     </div>
                     <div class="score-badge">
-                      <div class="label">Medicare Overall Rating</div>
+                      <div class="label">Medicare Rating</div>
                       <div class="value">4 / 5</div>
                     </div>
                   </div>
@@ -445,7 +422,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/stone-oak-retirement-community-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Stone Oak Retirement Community community profile" /></a>
+                  <a href="https://compassplace.com/community/stone-oak-retirement-community-hilliard-oh/"><img src="https://rlcommunities.com/media/images/communities/SO/01-stone-oak-hilliard-ohio-exterior.webp" alt="Stone Oak Retirement Community community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -455,7 +432,7 @@
                     </div>
                     <div class="score-badge">
                       <div class="label">Community Profile</div>
-                      <div class="value">nan</div>
+                      <div class="value">N/A</div>
                     </div>
                   </div>
                   <ul class="care-tags"><li>Independent Living</li></ul>
@@ -469,7 +446,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/trueman-pointe-care-center-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Trueman Pointe Care Center community profile" /></a>
+                  <a href="https://compassplace.com/community/trueman-pointe-care-center-hilliard-oh/"><img src="https://vxlhnagcnhisvehhjblm.supabase.co/storage/v1/object/public/facility-photos/7d4f535a-0f0d-485b-a07a-76cdbee50430/trueman-1.PNG" alt="Trueman Pointe Care Center community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -478,7 +455,7 @@
                       <div class="micro">Hilliard, Ohio</div>
                     </div>
                     <div class="score-badge">
-                      <div class="label">Medicare Overall Rating</div>
+                      <div class="label">Medicare Rating</div>
                       <div class="value">3 / 5</div>
                     </div>
                   </div>
@@ -493,7 +470,7 @@
 
               <article class="community-card">
                 <div class="thumb">
-                  <a href="https://compassplace.com/community/verena-at-hilliard-hilliard-oh/"><img src="https://compassplace.com/logo-social.png" alt="Verena at Hilliard community profile" /></a>
+                  <a href="https://compassplace.com/community/verena-at-hilliard-hilliard-oh/"><img src="https://verenaathilliard.com/wp-content/uploads/2025/11/12_4521-1024x683.jpg" alt="Verena at Hilliard community profile" /></a>
                 </div>
                 <div>
                   <div class="meta-top">
@@ -503,7 +480,7 @@
                     </div>
                     <div class="score-badge">
                       <div class="label">Community Profile</div>
-                      <div class="value">nan</div>
+                      <div class="value">N/A</div>
                     </div>
                   </div>
                   <ul class="care-tags"><li>Independent Living</li></ul>
@@ -514,11 +491,13 @@
                   </div>
                 </div>
               </article>
+
             </div>
           </div>
 
       </div>
     </section>
+
     <section class="section">
       <div class="container">
         <div class="cta-block">
