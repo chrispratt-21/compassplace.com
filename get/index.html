@@ -1,154 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Compass Place | Start with the App</title>
-  <meta name="description" content="Download the Compass Place app. Explore senior living privately, at your own pace. Free for families. Launching in Hamilton County, Indiana and Columbus, Ohio.">
-  <link rel="canonical" href="https://compassplace.com/get">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="/cp-shell.js"></script>
-  <style>
-    :root {
-      --color-bg: #FAFAF7;
-      --color-primary: #2B5F4E;
-      --color-primary-light: #3A7D66;
-      --color-accent: #C4945A;
-      --color-accent-light: #F5EDE2;
-      --color-text: #2C2C2C;
-      --color-text-secondary: #6B6B6B;
-      --font-display: 'DM Serif Display', Georgia, serif;
-      --font-body: 'DM Sans', -apple-system, sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      background: var(--color-bg);
-      line-height: 1.7;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-    }
-    .get-hero {
-      max-width: 640px;
-      margin: 0 auto;
-      padding: 100px 24px 80px;
-      text-align: center;
-    }
-    .get-hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4.5vw, 2.8rem);
-      color: var(--color-primary);
-      line-height: 1.2;
-      margin-bottom: 18px;
-      animation: fadeUp 0.6s ease both;
-    }
-    .subtitle {
-      font-size: 1.1rem;
-      color: var(--color-text-secondary);
-      margin-bottom: 12px;
-      line-height: 1.6;
-      animation: fadeUp 0.6s ease 0.1s both;
-    }
-    .launch-note {
-      display: inline-block;
-      background: var(--color-accent-light);
-      color: var(--color-accent);
-      padding: 6px 16px;
-      border-radius: 40px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 40px;
-      animation: fadeUp 0.6s ease 0.15s both;
-    }
-    .store-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-      animation: fadeUp 0.6s ease 0.25s both;
-    }
-    .store-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: var(--color-text);
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 28px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .store-btn:hover { background: #444; transform: translateY(-1px); }
-    .store-btn svg { width: 24px; height: 24px; flex-shrink: 0; }
-    .store-btn small { font-size: 0.72rem; font-weight: 400; display: block; opacity: 0.8; }
-    .get-note {
-      font-size: 0.88rem;
-      color: var(--color-text-secondary);
-      margin-top: 8px;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compass Place | Start with the App</title>
+<meta name="description" content="Download the Compass Place app. Explore senior living privately, at your own pace. Free for families. Launching in Hamilton County, Indiana and Columbus, Ohio.">
+<link rel="canonical" href="https://compassplace.com/get">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '964118589642962');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=964118589642962&ev=PageView&noscript=1"/></noscript>
+<script src="/cp-shell.js"></script>
+<style>
+:root{--bg:#FAFAF7;--primary:#2B5F4E;--primary-light:#3A7D66;--accent:#C4945A;--accent-light:#F5EDE2;--text:#2C2C2C;--text-secondary:#6B6B6B;--border:#E5E2DC;--card:#fff;--font-display:'DM Serif Display',Georgia,serif;--font-body:'DM Sans',-apple-system,sans-serif;--shadow:0 18px 40px rgba(44,44,44,.08);--radius:24px;--max:1180px}
+*,*:before,*:after{box-sizing:border-box;margin:0;padding:0} body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%} a{color:inherit;text-decoration:none}.container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 22px;border-radius:999px;border:1px solid transparent;font-weight:700;font-size:15px;transition:.18s;cursor:pointer;text-align:center}
+.btn:hover{transform:translateY(-1px)} .btn-primary{background:var(--primary);color:#fff;box-shadow:0 14px 30px rgba(43,95,78,.18)} .btn-primary:hover{background:var(--primary-light)} .btn-secondary{background:#fff;color:var(--primary);border-color:var(--border)}
+.page-section{padding:24px 0}.hero{padding:72px 0 28px}.hero-wrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:center}.hero-copy,.hero-card,.section-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.hero-copy{padding:42px}.hero-copy h1{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.3rem);line-height:1.1;color:var(--primary);margin-bottom:18px}.hero-copy p{color:var(--text-secondary);font-size:1.08rem;margin-bottom:14px}
+.launch-note{display:inline-block;background:var(--accent-light);color:var(--accent);padding:8px 16px;border-radius:999px;font-size:.85rem;font-weight:700;margin:8px 0 26px}
+.store-buttons{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}.store-btn{display:inline-flex;align-items:center;gap:10px;background:var(--text);color:#fff;padding:14px 26px;border-radius:12px;font-weight:600;font-size:.95rem;transition:.2s}.store-btn:hover{background:#444;transform:translateY(-1px)} .store-btn svg{width:24px;height:24px;flex-shrink:0}.store-btn small{font-size:.72rem;font-weight:400;display:block;opacity:.8}
+.get-note{font-size:.9rem;color:var(--text-secondary)} .hero-card{padding:18px}.hero-card img{border-radius:18px;border:1px solid var(--border)}
+.section-card{padding:34px}.section-header{max-width:780px;margin-bottom:24px}.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.15;color:var(--primary);margin-bottom:10px}.section-subtitle{color:var(--text-secondary);font-size:1.02rem}
+.preview-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.preview-card,.how-card,.trust-card{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;height:100%}.preview-shot{border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:16px;background:#fff}
+.preview-card h3,.how-card h3,.trust-card h3{font-size:1.12rem;margin-bottom:8px}.preview-card p,.how-card p,.trust-card p{color:var(--text-secondary)}
+.how-grid,.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.how-step{width:40px;height:40px;border-radius:999px;background:var(--primary);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;margin-bottom:14px}
+.cta-panel{background:linear-gradient(180deg,#2B5F4E 0%,#265547 100%);border-radius:24px;padding:40px 32px;color:#fff;text-align:center;box-shadow:var(--shadow)}
+.cta-panel h2{font-family:var(--font-display);font-size:clamp(1.8rem,3vw,2.6rem);margin-bottom:12px}.cta-panel p{max-width:760px;margin:0 auto 24px;opacity:.95}.cta-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}.cta-panel .btn-secondary{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.25)}
+@media(max-width:980px){.hero-wrap,.preview-grid,.how-grid,.trust-grid{grid-template-columns:1fr}.hero-copy,.section-card{padding:28px}}
+@media(max-width:720px){.store-buttons,.cta-actions{flex-direction:column;align-items:stretch}.store-btn,.btn{width:100%}.hero{padding-top:34px}}
+</style>
 </head>
 <body>
+<div id="cp-header"></div>
+<main>
+<section class="hero"><div class="container hero-wrap">
+<div class="hero-copy">
+<h1>Start with the app</h1>
+<p>Compass Place helps families explore senior living privately, compare options more clearly, and move at their own pace before they are ready for outreach.</p>
+<p>Download the app to see ranked places, compare top matches side by side, review local Trail Guide insight, and request tours when you are ready.</p>
+<div class="launch-note">Actively supporting families in Hamilton County, Indiana and Columbus, Ohio</div>
+<div class="store-buttons">
+<a href="https://apps.apple.com/us/app/compass-place/id6759469544" class="store-btn" id="apple-store-btn" rel="noopener" onclick="fbq('track','Lead');"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg><span><small>Download on the</small>App Store</span></a>
+<a href="https://play.google.com/store/apps/details?id=com.compassplace.app&pcampaignid=web_share" class="store-btn" id="android-store-btn" rel="noopener" onclick="fbq('track','Lead');"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 9.484l-2.302 2.302-8.634-8.128z"/></svg><span><small>Get it on</small>Google Play</span></a>
+</div>
+<p class="get-note">Free to use. Your information is never shared without your permission.</p>
+</div>
+<div class="hero-card"><img src="/images/app-comparison.png" alt="Compass Place app comparison preview"></div>
+</div></section>
 
-  <div id="cp-header"></div>
+<section class="page-section"><div class="container"><div class="section-card"><div class="section-header"><h2 class="section-title">See what you will get inside Compass Place</h2><p class="section-subtitle">If you are unsure whether the app is worth downloading, here is a quick look at how it helps families narrow options and move forward with more clarity.</p></div>
+<div class="preview-grid">
+<div class="preview-card"><div class="preview-shot"><img src="/images/app-comparison.png" alt="Comparison screen"></div><h3>Compare top matches side by side</h3><p>See how communities stack up on care fit, distance, availability, and what matters most to your family.</p></div>
+<div class="preview-card"><div class="preview-shot"><img src="/images/app-ranked-places.png" alt="Ranked places screen"></div><h3>Browse ranked places that fit your situation</h3><p>Focus on the communities that best match your family’s needs instead of sorting through a generic list.</p></div>
+<div class="preview-card"><div class="preview-shot"><img src="/images/app-trail-guide-opinions.png" alt="Trail Guide opinions screen"></div><h3>See local Trail Guide insight</h3><p>Get expert perspective that helps you look beyond the brochure and know what to look for on tours.</p></div>
+<div class="preview-card"><div class="preview-shot"><img src="/images/app-schedule-tour.png" alt="Schedule a tour screen"></div><h3>Request tours when you are ready</h3><p>Take the next step without losing track of your options or feeling pushed before you are ready.</p></div>
+</div></div></div></section>
 
-  <section class="get-hero">
-    <h1>Explore senior living privately, at your own pace</h1>
-    <p class="subtitle">Compass Place helps families understand their options without pressure or unwanted calls. No one will contact you unless you request it.</p>
-    <div class="launch-note">As of March 2026, we are actively supporting <br> families looking for senior care communities in: <br>Hamilton County, Indiana <br>Columbus, Ohio</div>
-    <div class="store-buttons">
-      <a href="https://apps.apple.com/us/app/compass-place/id6759469544"
-         class="store-btn"
-         id="apple-store-btn"
-         rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        <span><small>Download on the</small>App Store</span>
-      </a>
-      <a href="https://play.google.com/store/apps/details?id=com.compassplace.app&pcampaignid=web_share" class="store-btn" id="android-store-btn" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302a1 1 0 010 1.38l-2.302 2.302L15.196 12l2.502-2.492zM5.864 2.658L16.8 9.484l-2.302 2.302-8.634-8.128z"/></svg>
-        <span><small>Get it on</small>Google Play</span>
-      </a>
-    </div>
-    <p class="get-note">Free to use. Your information is never shared without your permission.</p>
-  </section>
+<section class="page-section"><div class="container"><div class="section-card"><div class="section-header"><h2 class="section-title">How families use the app</h2><p class="section-subtitle">Compass Place is designed to help people move from uncertainty to a shorter, more manageable list of options.</p></div>
+<div class="how-grid"><div class="how-card"><div class="how-step">1</div><h3>Describe the situation</h3><p>Tell the app about the person you are helping so Compass Place can focus on communities that fit better.</p></div><div class="how-card"><div class="how-step">2</div><h3>Review ranked matches</h3><p>Browse communities, compare the strongest options side by side, and get a clearer picture of tradeoffs.</p></div><div class="how-card"><div class="how-step">3</div><h3>Move forward with confidence</h3><p>Use Trail Guide insight and tour requests when you are ready to take the next step.</p></div></div>
+</div></div></section>
 
-  <div id="cp-footer"></div>
+<section class="page-section"><div class="container"><div class="section-card"><div class="section-header"><h2 class="section-title">Why download instead of just browsing the website?</h2><p class="section-subtitle">The app is where Compass Place becomes personal, organized, and easier to use over time.</p></div>
+<div class="trust-grid"><div class="trust-card"><h3>Built around your situation</h3><p>Keep track of the person you are helping, your top matches, your comparisons, and your tour activity in one place.</p></div><div class="trust-card"><h3>More useful than a static list</h3><p>See ranked communities, side-by-side comparisons, availability context, and Trail Guide insight designed to help real decisions.</p></div><div class="trust-card"><h3>Private by design</h3><p>Explore at your own pace without sharing your information or inviting outreach unless you choose to take that step.</p></div></div>
+</div></div></section>
 
-  <script>
-    // On iOS devices, use the native itms-apps:// URI scheme to open the
-    // App Store directly, bypassing any client-side router that might
-    // intercept the https:// link and redirect back to this page.
-    (function () {
-      var appleBtn = document.getElementById('apple-store-btn');
-      var androidBtn = document.getElementById('android-store-btn');
-      var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
-      var isAndroid = /Android/i.test(navigator.userAgent);
-
-      if (isIOS) {
-        appleBtn.href = 'itms-apps://apps.apple.com/us/app/compass-place/id6759469544';
-        appleBtn.removeAttribute('target');
-      } else {
-        appleBtn.setAttribute('target', '_blank');
-      }
-
-      if (isAndroid) {
-        androidBtn.href = 'market://details?id=com.compassplace.app';
-        androidBtn.removeAttribute('target');
-      } else {
-        androidBtn.setAttribute('target', '_blank');
-      }
-    })();
-  </script>
-
-</body>
-</html>
+<section class="page-section"><div class="container"><div class="cta-panel"><h2>Download Compass Place and explore privately</h2><p>See what fits, compare top options, and move forward when you are ready.</p><div class="cta-actions"><a href="https://apps.apple.com/us/app/compass-place/id6759469544" class="btn btn-primary" id="apple-store-btn-bottom" rel="noopener" onclick="fbq('track','Lead');">Download on the App Store</a><a href="https://play.google.com/store/apps/details?id=com.compassplace.app&pcampaignid=web_share" class="btn btn-secondary" id="android-store-btn-bottom" rel="noopener" onclick="fbq('track','Lead');">Get it on Google Play</a></div></div></div></section>
+</main>
+<div id="cp-footer"></div>
+<script>
+(function(){var isIOS=/iPhone|iPad|iPod/i.test(navigator.userAgent),isAndroid=/Android/i.test(navigator.userAgent);function setIOS(id){var el=document.getElementById(id);if(!el)return;if(isIOS){el.href='itms-apps://apps.apple.com/us/app/compass-place/id6759469544';el.removeAttribute('target')}else{el.setAttribute('target','_blank')}}function setAndroid(id){var el=document.getElementById(id);if(!el)return;if(isAndroid){el.href='market://details?id=com.compassplace.app';el.removeAttribute('target')}else{el.setAttribute('target','_blank')}}setIOS('apple-store-btn');setIOS('apple-store-btn-bottom');setAndroid('android-store-btn');setAndroid('android-store-btn-bottom')})();
+</script>
+</body></html>
