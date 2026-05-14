@@ -8,9 +8,28 @@
  *   3. Add <script src="/cp-shell.js"></script> anywhere in <head> or <body>
  *
  * To update the header or footer across every page, edit this file only.
+ *
+ * Analytics: GA4 (G-TZBW5WHSH2) is injected automatically on every page.
  */
 
 (function () {
+
+  /* ─── ANALYTICS ─────────────────────────────────────────────────────────── */
+  function injectAnalytics() {
+    var script1 = document.createElement('script');
+    script1.async = true;
+    script1.src = 'https://www.googletagmanager.com/gtag/js?id=G-TZBW5WHSH2';
+    document.head.appendChild(script1);
+
+    var script2 = document.createElement('script');
+    script2.textContent = [
+      'window.dataLayer = window.dataLayer || [];',
+      'function gtag(){dataLayer.push(arguments);}',
+      'gtag("js", new Date());',
+      'gtag("config", "G-TZBW5WHSH2");'
+    ].join('\n');
+    document.head.appendChild(script2);
+  }
 
   /* ─── STYLES ────────────────────────────────────────────────────────────── */
   const CSS = `
@@ -289,13 +308,13 @@
 
   /* ─── INJECT ─────────────────────────────────────────────────────────────── */
   function injectStyles() {
-    const style = document.createElement('style');
+    var style = document.createElement('style');
     style.textContent = CSS;
     document.head.appendChild(style);
   }
 
   function injectHTML(id, html) {
-    const el = document.getElementById(id);
+    var el = document.getElementById(id);
     if (el) {
       el.outerHTML = html;
     } else {
@@ -304,6 +323,7 @@
   }
 
   function init() {
+    injectAnalytics();
     injectStyles();
     injectHTML('cp-header', HEADER_HTML);
     injectHTML('cp-footer', FOOTER_HTML);
