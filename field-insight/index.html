@@ -336,7 +336,6 @@
       font-weight: 600;
     }
 
-    .status-success { color: var(--color-primary); }
     .status-error { color: #9b2c2c; }
 
     /* Honeypot */
@@ -352,6 +351,57 @@
       padding-top: 0;
     }
 
+    /* Modal */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 52px 44px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+    }
+
+    .modal-check {
+      width: 64px;
+      height: 64px;
+      background: var(--color-primary-muted);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 1.8rem;
+      color: var(--color-primary);
+    }
+
+    .modal h3 {
+      font-size: 1.7rem;
+      margin-bottom: 14px;
+    }
+
+    .modal p {
+      color: var(--color-text-secondary);
+      font-size: 0.96rem;
+      line-height: 1.7;
+      margin: 0 0 32px;
+    }
+
     @media (max-width: 768px) {
       .grid-2,
       .type-chooser,
@@ -361,6 +411,7 @@
       }
 
       .form-card { padding: 24px; }
+      .modal { padding: 36px 24px; }
     }
   </style>
 </head>
@@ -666,6 +717,20 @@
 
   <div id="cp-footer"></div>
 
+  <!-- SUCCESS MODAL -->
+  <div class="modal-backdrop" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal">
+      <div class="modal-check">&#10003;</div>
+      <h3 id="modal-title">Thank you for contributing.</h3>
+      <p>
+        Your insight has been saved. Families navigating senior living in this area will benefit
+        from what you shared, even if they never know it came from you. We genuinely appreciate
+        your time and your trust in what we are building.
+      </p>
+      <button class="btn btn-primary" id="modal-close">Close</button>
+    </div>
+  </div>
+
   <script>
     const SUPABASE_URL = "https://vxlhnagcnhisvehhjblm.supabase.co";
     const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ4bGhuYWdjbmhpc3ZlaGhqYmxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY3NzEzMTUsImV4cCI6MjA4MjM0NzMxNX0.bjLDGe3z4CDvxxVXZUKXs7anHXudXAGkZ5C0y3_1HRo";
@@ -731,7 +796,6 @@
 
     typeOptions.forEach((option) => {
       option.addEventListener("click", () => {
-        // Update selected state
         typeOptions.forEach((o) => o.classList.remove("selected"));
         option.classList.add("selected");
 
@@ -739,7 +803,6 @@
         radio.checked = true;
         const val = radio.value;
 
-        // Show/hide sections
         reviewSection.style.display = val === "review" ? "block" : "none";
         fieldnoteSection.style.display = val === "field_note" ? "block" : "none";
         submitSection.style.display = "block";
@@ -777,7 +840,6 @@
         star.addEventListener("click", () => {
           const newVal = parseInt(star.dataset.value);
           const currentVal = parseInt(hiddenInput.value) || 0;
-          // Clicking same star a second time clears it
           hiddenInput.value = (newVal === currentVal) ? "" : newVal;
           renderStars(parseInt(hiddenInput.value) || 0);
         });
@@ -789,6 +851,17 @@
           renderStars(0);
         });
       }
+    });
+
+    // --- Modal ---
+    const successModal = document.getElementById("success-modal");
+
+    document.getElementById("modal-close").addEventListener("click", () => {
+      successModal.classList.remove("open");
+    });
+
+    successModal.addEventListener("click", (e) => {
+      if (e.target === successModal) successModal.classList.remove("open");
     });
 
     // --- Form submission ---
@@ -803,24 +876,19 @@
       statusEl.className = "status-message";
 
       // Honeypot check
-      const honeypot = form.querySelector("#hp_website").value;
-      if (honeypot) {
-        // Silently succeed to not tip off bots
-        statusEl.textContent = "Thank you. Your insight has been received.";
-        statusEl.classList.add("status-success");
+      if (form.querySelector("#hp_website").value) {
+        successModal.classList.add("open");
         return;
       }
 
       // Minimum time check (under 4 seconds = likely a bot)
       if (Date.now() - pageLoadTime < 4000) {
-        statusEl.textContent = "Thank you. Your insight has been received.";
-        statusEl.classList.add("status-success");
+        successModal.classList.add("open");
         return;
       }
 
       const submissionType = form.querySelector("input[name='submission_type']:checked")?.value;
 
-      // Validation
       const name = form.querySelector("#submitter_name").value.trim();
       const email = form.querySelector("#submitter_email").value.trim();
       const areaId = form.querySelector("#area_id").value;
@@ -869,7 +937,6 @@
       submitButton.disabled = true;
       submitButton.textContent = "Submitting…";
 
-      // Build payload
       const reviewText = (form.querySelector("#review_text")?.value || "").trim();
       const fieldnoteText = (form.querySelector("#fieldnote_text")?.value || "").trim();
 
@@ -900,6 +967,8 @@
         console.error("Insert error:", error);
         statusEl.textContent = "Something went wrong. Please try again or email us directly.";
         statusEl.classList.add("status-error");
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Insight";
       } else {
         form.reset();
         facilitySelect.innerHTML = '<option value="">Select a community</option>';
@@ -911,12 +980,10 @@
         submitSection.style.display = "none";
         typeHelper.style.display = "none";
         typeOptions.forEach(o => o.classList.remove("selected"));
-        statusEl.textContent = "Thank you. Your insight has been received. We appreciate you taking the time.";
-        statusEl.classList.add("status-success");
+        submitButton.disabled = false;
+        submitButton.textContent = "Submit Insight";
+        successModal.classList.add("open");
       }
-
-      submitButton.disabled = false;
-      submitButton.textContent = "Submit Insight";
     });
 
     // Init
