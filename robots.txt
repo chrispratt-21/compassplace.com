@@ -6,4 +6,5 @@ Disallow: /terms-of-service/
 Disallow: /privacy-policy/
 Disallow: /sms-consent/
 Disallow: /for-communities/
+Disallow: /field-insight/
 Sitemap: https://compassplace.com/sitemap.xml
