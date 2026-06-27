@@ -893,7 +893,7 @@
       };
 
       const { error } = await supabaseClient
-        .from("partner_feedback")
+        .from("field_insight")
         .insert([payload]);
 
       if (error) {
