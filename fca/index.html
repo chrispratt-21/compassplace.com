@@ -100,7 +100,7 @@
     .hero p {
       font-size: clamp(17px, 2vw, 20px);
       color: #94a3b8;
-      max-width: 600px;
+      max-width: 620px;
       margin: 0 auto 40px;
       line-height: 1.65;
     }
@@ -133,6 +133,11 @@
       display: inline-block;
     }
     .btn-secondary:hover { border-color: #64748b; color: var(--white); }
+    .hero-disclaimer {
+      margin-top: 20px;
+      font-size: 12px;
+      color: #475569;
+    }
 
     /* ── Section base ────────────────────────────────────── */
     section { padding: 80px 48px; }
@@ -179,6 +184,13 @@
       font-weight: 800;
       color: var(--green);
       line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-number-sm {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--green);
+      line-height: 1.2;
       margin-bottom: 8px;
     }
     .stat-desc {
@@ -416,19 +428,20 @@
     <div class="nav-links">
       <a href="#how-it-works">How It Works</a>
       <a href="#benefits">Benefits</a>
-      <a href="mailto:hello@compassplace.com" class="nav-cta">Get in Touch</a>
+      <a href="mailto:connect@compassplace.com" class="nav-cta">Get in Touch</a>
     </div>
   </nav>
 
   <!-- Hero -->
   <div class="hero">
     <div class="hero-badge">For Home Care Agencies</div>
-    <h1>The first call wins.<br><span>We make sure you're first.</span></h1>
-    <p>First Call Advantage gives your agency an on-duty advocate who responds to marketplace leads within minutes, so you never lose a client to a slower competitor.</p>
+    <h1>The first call wins.<br><span>We work to get you there first.</span></h1>
+    <p>First Call Advantage gives your agency an on-duty advocate ready to reach leads while you're unavailable, whether that's after hours, on weekends, or in the middle of a workday meeting you can't leave.</p>
     <div class="hero-cta">
-      <a href="mailto:hello@compassplace.com" class="btn-primary">Request Information</a>
+      <a href="mailto:connect@compassplace.com" class="btn-primary">Request Information</a>
       <a href="#how-it-works" class="btn-secondary">See How It Works</a>
     </div>
+    <p class="hero-disclaimer">Response times vary based on advocate availability and configured coverage hours.</p>
   </div>
 
   <!-- Stats -->
@@ -440,11 +453,11 @@
       </div>
       <div class="stat-item">
         <div class="stat-number">&lt;5 min</div>
-        <div class="stat-desc">Average response time from lead receipt to advocate outreach</div>
+        <div class="stat-desc">Our goal is to reach incoming leads within minutes of receiving the referral notification</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">24/7</div>
-        <div class="stat-desc">Coverage during your configured service hours, including evenings and weekends</div>
+        <div class="stat-number-sm">Fills<br>Your Gaps</div>
+        <div class="stat-desc">Coverage during evenings, weekends, and the workday moments when your team simply can't step away</div>
       </div>
     </div>
   </div>
@@ -457,21 +470,21 @@
           <p class="section-label">The Problem</p>
           <h2 class="section-title">Marketplace leads are time-sensitive. Most agencies aren't built for that.</h2>
           <p>When a family submits an inquiry on A Place for Mom, Caring.com, or a similar platform, they hear from multiple agencies at the same time. The agency that reaches them first builds trust and sets expectations before anyone else gets a chance.</p>
-          <p>But most home care agencies don't have a dedicated person watching for incoming leads around the clock. By the time the email is seen and a call is made, another agency has already had a full conversation with the family.</p>
+          <p>But responding immediately is hard. A lead arrives while your owner is meeting with a new client. Or your salesperson is on a caregiver intake call. Or it's 7pm on a Friday. The referral sits, and by the time someone gets to it, another agency has already had a full conversation with the family.</p>
         </div>
         <div class="problem-cards">
           <div class="problem-card">
-            <div class="problem-icon">⏱️</div>
+            <div class="problem-icon">📅</div>
             <div>
-              <h4>Delayed response</h4>
-              <p>Leads sit in an inbox until someone checks it. By then, the window to make a first impression has closed.</p>
+              <h4>You're already with someone</h4>
+              <p>Your best salespeople are often in the field or on calls. A new lead arriving during that time has no one to greet it.</p>
             </div>
           </div>
           <div class="problem-card">
-            <div class="problem-icon">📵</div>
+            <div class="problem-icon">🌙</div>
             <div>
               <h4>After-hours gaps</h4>
-              <p>Families often submit inquiries in the evening or on weekends. Most agencies aren't staffed to respond until Monday morning.</p>
+              <p>Families often submit inquiries in the evening or on weekends. Most agencies aren't staffed to respond until the next business day.</p>
             </div>
           </div>
           <div class="problem-card">
@@ -502,15 +515,15 @@
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h3>We call within minutes</h3>
-          <p>Our on-duty advocate receives an instant alert, reviews the lead, and calls the family on your behalf before any competitor has a chance to respond.</p>
-          <div class="step-detail">The advocate introduces your agency, answers initial questions, and builds rapport on your behalf.</div>
+          <h3>We make the call</h3>
+          <p>Our on-duty advocate receives an instant alert and calls the family on your behalf, aiming to reach them before any other agency does. Advocates introduce your agency, answer initial questions, and build rapport.</p>
+          <div class="step-detail">Coverage hours are configured to match your schedule and business needs.</div>
         </div>
         <div class="step">
           <div class="step-number">3</div>
           <h3>You take it from there</h3>
           <p>Qualified, interested families are handed off to your team. You get a complete record of the contact in your dashboard, including notes from the call.</p>
-          <div class="step-detail">Full lead history, contact details, and call notes available in your FCA dashboard 24/7.</div>
+          <div class="step-detail">Full lead history, contact details, and call notes available in your FCA dashboard.</div>
         </div>
       </div>
     </div>
@@ -521,13 +534,13 @@
     <div class="section-inner">
       <p class="section-label">Benefits</p>
       <h2 class="section-title">Built for home care agencies.</h2>
-      <p class="section-sub">FCA handles the moment of first contact so your team can focus on delivering great care.</p>
+      <p class="section-sub">FCA handles the moment of first contact so your team can focus on the client in front of them.</p>
 
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-icon">⚡</div>
-          <h3>Never miss a lead to response time</h3>
-          <p>Every lead gets an immediate, personal phone call from a trained advocate. No voicemail. No form submission. An actual conversation within minutes of the inquiry.</p>
+          <h3>Fast, personal outreach on every lead</h3>
+          <p>Every lead gets a real phone call from a trained advocate, not a voicemail and not a form. During your configured coverage hours, we aim to reach families before the competition does.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">🏷️</div>
@@ -542,7 +555,7 @@
         <div class="benefit-card">
           <div class="benefit-icon">💡</div>
           <h3>No new staff. No training. No hassle.</h3>
-          <p>FCA requires no hiring, no onboarding, and no change to how you operate. You set up a forwarding rule once and the coverage starts immediately.</p>
+          <p>FCA requires no hiring, no onboarding, and no change to how you operate. You set up a forwarding rule once and coverage starts immediately.</p>
         </div>
       </div>
     </div>
@@ -556,19 +569,19 @@
 
       <div class="audience-list">
         <div class="audience-item">
-          <div class="audience-emoji">🏢</div>
-          <h4>Independent home care agencies</h4>
-          <p>You're competing with larger franchises and staffing agencies who have dedicated intake teams. FCA levels the playing field.</p>
-        </div>
-        <div class="audience-item">
-          <div class="audience-emoji">📈</div>
-          <h4>Agencies investing in lead platforms</h4>
-          <p>You're spending real money on marketplace referrals and want to make sure every lead gets the response it deserves.</p>
+          <div class="audience-emoji">📞</div>
+          <h4>Your team is already on the phone</h4>
+          <p>Your owner or salesperson is meeting with a family, on a caregiver intake call, or helping someone in crisis. A new lead arrives and nobody's free to answer it.</p>
         </div>
         <div class="audience-item">
           <div class="audience-emoji">🌙</div>
-          <h4>Agencies with after-hours gaps</h4>
-          <p>Your team is excellent during business hours. But evenings, weekends, and holidays create gaps that FCA fills automatically.</p>
+          <h4>Leads arrive after hours</h4>
+          <p>Your team is excellent during business hours. But evenings, weekends, and holidays create gaps that cost you leads to agencies with faster coverage.</p>
+        </div>
+        <div class="audience-item">
+          <div class="audience-emoji">📈</div>
+          <h4>You're investing in lead platforms</h4>
+          <p>You're spending real money on marketplace referrals and want to make sure every lead gets the fast, professional response it deserves.</p>
         </div>
       </div>
     </div>
@@ -577,9 +590,9 @@
   <!-- CTA -->
   <section class="cta-section" id="contact">
     <div class="section-inner">
-      <h2>Ready to start winning more leads?</h2>
+      <h2>Ready to stop losing leads to response time?</h2>
       <p>Contact us to learn more about how FCA works and whether it's a good fit for your agency.</p>
-      <a href="mailto:hello@compassplace.com" class="btn-dark">Get in Touch</a>
+      <a href="mailto:connect@compassplace.com" class="btn-dark">Get in Touch</a>
     </div>
   </section>
 
@@ -589,7 +602,7 @@
     <div class="footer-links">
       <a href="privacy.html">Privacy Policy</a>
       <a href="terms.html">Terms of Service</a>
-      <a href="mailto:hello@compassplace.com">Contact</a>
+      <a href="mailto:connect@compassplace.com">Contact</a>
     </div>
     <p>A service of Fletcher Street Corporation &bull; &copy; 2026 All rights reserved.</p>
   </footer>
