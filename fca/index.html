@@ -58,6 +58,18 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--white); }
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-left: auto;
+    }
+    .nav-appstore img {
+      display: block;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nav-appstore:hover img { opacity: 1; }
     .nav-cta {
       background: var(--green);
       color: var(--navy) !important;
@@ -405,7 +417,8 @@
     /* ── Responsive ──────────────────────────────────────── */
     @media (max-width: 768px) {
       nav { padding: 16px 24px; }
-      .nav-links { gap: 16px; }
+      .nav-links { display: none; }
+      .nav-appstore { display: none; }
       .hero { padding: 72px 24px 64px; }
       section { padding: 60px 24px; }
       .stat-bar { padding: 40px 24px; }
@@ -428,6 +441,11 @@
     <div class="nav-links">
       <a href="#how-it-works">How It Works</a>
       <a href="#benefits">Benefits</a>
+    </div>
+    <div class="nav-right">
+      <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer" class="nav-appstore">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="30">
+      </a>
       <a href="mailto:connect@compassplace.com" class="nav-cta">Get in Touch</a>
     </div>
   </nav>
@@ -593,7 +611,7 @@
     <p>Get in touch to learn how FCA can work for your agency.</p>
     <a href="mailto:connect@compassplace.com" class="btn-dark">Request Information</a>
     <div style="margin-top: 36px; padding-top: 32px; border-top: 1px solid rgba(20,83,45,0.3);">
-      <p style="font-size: 14px; color: #14532d; margin-bottom: 14px; font-weight: 600;">Your advocates use our iOS app to receive and respond to leads instantly.</p>
+      <p style="font-size: 14px; color: #14532d; margin-bottom: 14px; font-weight: 600;">Download our iOS app to activate coverage with the tap of a button.</p>
       <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="46" style="display: inline-block;">
       </a>
