@@ -77,6 +77,9 @@
       display: block;
       opacity: 0.8;
       transition: opacity 0.2s;
+      width: 108px;
+      height: 32px;
+      object-fit: contain;
     }
     .nav-appstore:hover img { opacity: 1; }
     .nav-cta {
@@ -317,6 +320,22 @@
       align-items: center;
       flex-wrap: wrap;
     }
+    /* Apple's SVG badge and Google's PNG badge ship with different amounts
+       of internal transparent padding, so matching only by "height" makes
+       them render at visibly different sizes. Giving both a matching fixed
+       box (width + height) with object-fit: contain keeps each pair the
+       same visual size regardless of the source image's own padding. */
+    .cta-badge-img {
+      display: inline-block;
+      width: 168px;
+      height: 50px;
+      object-fit: contain;
+    }
+    .footer-badge-img {
+      width: 140px;
+      height: 42px;
+      object-fit: contain;
+    }
 
     /* ── Trust ───────────────────────────────────────────── */
     .trust { background: var(--white); }
@@ -411,6 +430,33 @@
       text-align: center;
     }
     .form-fallback a { color: var(--navy); font-weight: 600; text-decoration: underline; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+    }
+    .form-success.show { display: block; }
+    .form-success-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: rgba(158,202,37,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .form-success-icon svg { width: 28px; height: 28px; }
+    .form-success h3 {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .form-success p {
+      font-size: 15px;
+      color: var(--sub);
+      line-height: 1.6;
+    }
 
     /* ── Benefits ────────────────────────────────────────── */
     .benefits { background: var(--navy); }
@@ -559,10 +605,10 @@
     </div>
     <div class="nav-right">
       <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer" class="nav-appstore">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="30">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="nav-appstore js-play-badge">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="30">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
       </a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
@@ -758,10 +804,10 @@
       <p style="font-size: 14px; color: #14532d; margin-bottom: 14px; font-weight: 600;">Download our app to activate coverage with the tap of a button.</p>
       <div class="badge-row" style="justify-content: center;">
         <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer">
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="46" style="display: inline-block;">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="cta-badge-img">
         </a>
         <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge">
-          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="68" style="display: inline-block;">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="cta-badge-img">
         </a>
       </div>
     </div>
@@ -817,8 +863,17 @@
           <button type="submit" class="btn-submit" id="fca-submit-btn">Request Information</button>
           <div class="form-status" id="fca-form-status"></div>
         </form>
-        <div class="form-fallback">
+        <div class="form-fallback" id="fca-form-fallback">
           Prefer email? Reach us directly at <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.
+        </div>
+        <div class="form-success" id="fca-form-success">
+          <div class="form-success-icon">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 6L9 17L4 12" stroke="#72921b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Thanks, we've got it.</h3>
+          <p>We've received your information and an advocate will follow up soon. If anything is time sensitive, reach us directly at <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.</p>
         </div>
       </div>
     </div>
@@ -830,6 +885,8 @@
       var form = document.getElementById('fca-inquiry-form');
       var statusEl = document.getElementById('fca-form-status');
       var submitBtn = document.getElementById('fca-submit-btn');
+      var fallbackEl = document.getElementById('fca-form-fallback');
+      var successEl = document.getElementById('fca-form-success');
       var ENDPOINT = 'https://vsdhnkbrdmckszokmnbe.supabase.co/functions/v1/submit-agency-inquiry';
 
       form.addEventListener('submit', function (e) {
@@ -878,8 +935,9 @@
           .then(function (result) {
             if (result.ok && result.data && result.data.ok) {
               form.reset();
-              statusEl.className = 'form-status success';
-              statusEl.textContent = "Thanks. We've got your information and will be in touch soon.";
+              form.style.display = 'none';
+              fallbackEl.style.display = 'none';
+              successEl.classList.add('show');
             } else {
               throw new Error((result.data && result.data.error) || 'submit_failed');
             }
@@ -941,10 +999,10 @@
     </div>
     <div class="badge-row" style="justify-content: center; margin-bottom: 20px;">
       <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" height="38" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="footer-badge-img" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
       </a>
       <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" height="56" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="footer-badge-img" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
       </a>
     </div>
     <p>A service of Compass Place &nbsp;&bull;&nbsp; &copy; 2026 Compass Place LLC. All rights reserved.</p>
