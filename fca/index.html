@@ -73,15 +73,13 @@
       align-items: center;
       gap: 16px;
     }
-    .nav-appstore img {
-      display: block;
-      opacity: 0.8;
+    .store-badge {
+      display: inline-flex;
+      opacity: 0.88;
       transition: opacity 0.2s;
-      width: 108px;
-      height: 32px;
-      object-fit: contain;
     }
-    .nav-appstore:hover img { opacity: 1; }
+    .store-badge:hover, .store-badge:focus-visible { opacity: 1; }
+    .store-badge svg { display: block; }
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -320,46 +318,17 @@
       align-items: center;
       flex-wrap: wrap;
     }
-    /* Apple's SVG badge is cropped tight to the visible black pill, but
-       Google's official PNG (en_badge_web_generic.png) ships with a lot of
-       transparent padding baked into the canvas around its pill. Giving
-       both the same declared box only equalizes the outer box, not what's
-       actually visible inside it, so Apple still looks bigger. Google's
-       badge is corrected by rendering it oversized inside an
-       overflow:hidden box of the SAME dimensions as Apple's box, cropping
-       away the built-in padding so the visible pill fills the box the way
-       Apple's does. The zoom amount is an estimate based on the known
-       proportions of Google's asset, not a pixel measurement (this
-       environment has no network path to fetch and inspect the real image
-       file) -- treat as a first pass and confirm it looks right live. */
-    .cta-badge-img {
-      display: block;
-      width: 168px;
-      height: 50px;
-      object-fit: contain;
-    }
-    .footer-badge-img {
-      display: block;
-      width: 140px;
-      height: 42px;
-      object-fit: contain;
-    }
-    .google-badge-crop {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-    .google-badge-zoom {
-      flex: none;
-      object-fit: cover;
-    }
-    .nav-appstore.google-badge-crop { width: 108px; height: 32px; }
-    .nav-google-zoom { width: 132px; height: 51px; }
-    .cta-crop { width: 168px; height: 50px; }
-    .cta-google-zoom { width: 207px; height: 80px; }
-    .footer-crop { width: 140px; height: 42px; }
-    .footer-google-zoom { width: 173px; height: 67px; }
+    /* The official Apple SVG and Google PNG badge assets don't match each
+       other in padding, corner radius, or border, and swapping in
+       different scale factors to compensate proved unreliable (couldn't be
+       pixel-verified without network access to the real image files in
+       this environment). Both badges are instead custom-built as inline
+       SVG from one shared template (see the <symbol> defs near the top of
+       <body>), so every pair is guaranteed identical in size, corner
+       radius, and border by construction -- not by tuning. */
+    .badge-nav svg { width: 96px; height: 32px; }
+    .badge-cta svg { width: 150px; height: 50px; }
+    .badge-footer svg { width: 126px; height: 42px; }
 
     /* ── Trust ───────────────────────────────────────────── */
     .trust { background: var(--white); }
@@ -622,6 +591,33 @@
 </head>
 <body>
 
+  <!-- App store badges, custom-built inline so the Apple and Google badges are
+       guaranteed to share the same size, corner radius, and border. -->
+  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+    <defs>
+      <symbol id="badge-apple" viewBox="0 0 240 80">
+        <rect x="0" y="0" width="240" height="80" rx="12" fill="#000"/>
+        <g transform="translate(18,16)" fill="#fff">
+          <path d="M34.5 13.2C32.6 11.1 30.0 10.0 27.5 10.0C24.6 10.0 22.3 11.9 20.9 11.9C19.4 11.9 17.4 10.1 15.1 10.1C10.9 10.1 6.7 13.5 6.7 20.1C6.7 24.2 8.3 28.6 10.3 31.4C12.0 33.8 13.5 35.8 15.6 35.8C17.6 35.8 18.4 34.5 20.9 34.5C23.3 34.5 24.0 35.8 26.2 35.8C28.4 35.8 29.8 33.8 31.3 31.6C32.9 29.1 33.6 26.7 33.6 26.6C33.5 26.5 29.4 24.9 29.4 20.1C29.4 16.0 32.6 14.1 32.8 14.0C33.4 13.6 34.0 13.4 34.5 13.2Z"/>
+          <path d="M22.9 8.0C24.0 6.7 24.7 4.9 24.5 3.1C23.0 3.2 21.2 4.1 20.1 5.4C19.1 6.6 18.3 8.4 18.5 10.1C20.2 10.2 21.9 9.3 22.9 8.0Z"/>
+        </g>
+        <text x="66" y="34" font-size="13" fill="#e5e5e5" font-family="Helvetica, Arial, sans-serif">Download on the</text>
+        <text x="65" y="62" font-size="27" fill="#fff" font-weight="600" font-family="Helvetica, Arial, sans-serif">App Store</text>
+      </symbol>
+      <symbol id="badge-google" viewBox="0 0 240 80">
+        <rect x="0" y="0" width="240" height="80" rx="12" fill="#000"/>
+        <g transform="translate(20,20)">
+          <polygon points="0,0 0,40 16,20" fill="#00C3FF"/>
+          <polygon points="0,0 16,20 38,20" fill="#32DE7A"/>
+          <polygon points="0,40 16,20 38,20" fill="#FFD500"/>
+          <polygon points="12,17 24,20 12,23" fill="#FF3B58"/>
+        </g>
+        <text x="66" y="32" font-size="10.5" letter-spacing="1" fill="#e5e5e5" font-family="Helvetica, Arial, sans-serif">GET IT ON</text>
+        <text x="65" y="61" font-size="24" fill="#fff" font-weight="600" font-family="Helvetica, Arial, sans-serif">Google Play</text>
+      </symbol>
+    </defs>
+  </svg>
+
   <!-- Nav -->
   <nav>
     <div class="nav-logo"><span>First</span> Call Advantage</div>
@@ -631,11 +627,11 @@
       <a href="#benefits">Benefits</a>
     </div>
     <div class="nav-right">
-      <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer" class="nav-appstore">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
+      <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer" class="nav-appstore store-badge badge-nav" aria-label="Download on the App Store">
+        <svg viewBox="0 0 240 80"><use href="#badge-apple"></use></svg>
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="nav-appstore js-play-badge google-badge-crop">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="google-badge-zoom nav-google-zoom">
+      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="nav-appstore js-play-badge store-badge badge-nav" aria-label="Get it on Google Play">
+        <svg viewBox="0 0 240 80"><use href="#badge-google"></use></svg>
       </a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
@@ -830,11 +826,11 @@
     <div style="margin-top: 36px; padding-top: 32px; border-top: 1px solid rgba(20,83,45,0.3);">
       <p style="font-size: 14px; color: #14532d; margin-bottom: 14px; font-weight: 600;">Download our app to activate coverage with the tap of a button.</p>
       <div class="badge-row" style="justify-content: center;">
-        <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer">
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="cta-badge-img">
+        <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer" class="store-badge badge-cta" aria-label="Download on the App Store">
+          <svg viewBox="0 0 240 80"><use href="#badge-apple"></use></svg>
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge google-badge-crop cta-crop">
-          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="google-badge-zoom cta-google-zoom">
+        <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge store-badge badge-cta" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 240 80"><use href="#badge-google"></use></svg>
         </a>
       </div>
     </div>
@@ -1025,11 +1021,11 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="badge-row" style="justify-content: center; margin-bottom: 20px;">
-      <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer">
-        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="footer-badge-img" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
+      <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer" class="store-badge badge-footer" aria-label="Download on the App Store">
+        <svg viewBox="0 0 240 80"><use href="#badge-apple"></use></svg>
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge google-badge-crop footer-crop">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="google-badge-zoom footer-google-zoom" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
+      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge store-badge badge-footer" aria-label="Get it on Google Play">
+        <svg viewBox="0 0 240 80"><use href="#badge-google"></use></svg>
       </a>
     </div>
     <p>A service of Compass Place &nbsp;&bull;&nbsp; &copy; 2026 Compass Place LLC. All rights reserved.</p>
