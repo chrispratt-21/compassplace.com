@@ -320,22 +320,46 @@
       align-items: center;
       flex-wrap: wrap;
     }
-    /* Apple's SVG badge and Google's PNG badge ship with different amounts
-       of internal transparent padding, so matching only by "height" makes
-       them render at visibly different sizes. Giving both a matching fixed
-       box (width + height) with object-fit: contain keeps each pair the
-       same visual size regardless of the source image's own padding. */
+    /* Apple's SVG badge is cropped tight to the visible black pill, but
+       Google's official PNG (en_badge_web_generic.png) ships with a lot of
+       transparent padding baked into the canvas around its pill. Giving
+       both the same declared box only equalizes the outer box, not what's
+       actually visible inside it, so Apple still looks bigger. Google's
+       badge is corrected by rendering it oversized inside an
+       overflow:hidden box of the SAME dimensions as Apple's box, cropping
+       away the built-in padding so the visible pill fills the box the way
+       Apple's does. The zoom amount is an estimate based on the known
+       proportions of Google's asset, not a pixel measurement (this
+       environment has no network path to fetch and inspect the real image
+       file) -- treat as a first pass and confirm it looks right live. */
     .cta-badge-img {
-      display: inline-block;
+      display: block;
       width: 168px;
       height: 50px;
       object-fit: contain;
     }
     .footer-badge-img {
+      display: block;
       width: 140px;
       height: 42px;
       object-fit: contain;
     }
+    .google-badge-crop {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .google-badge-zoom {
+      flex: none;
+      object-fit: cover;
+    }
+    .nav-appstore.google-badge-crop { width: 108px; height: 32px; }
+    .nav-google-zoom { width: 132px; height: 51px; }
+    .cta-crop { width: 168px; height: 50px; }
+    .cta-google-zoom { width: 207px; height: 80px; }
+    .footer-crop { width: 140px; height: 42px; }
+    .footer-google-zoom { width: 173px; height: 67px; }
 
     /* ── Trust ───────────────────────────────────────────── */
     .trust { background: var(--white); }
@@ -344,13 +368,16 @@
       grid-template-columns: 1fr 1fr;
       gap: 40px;
       margin-top: 40px;
-      align-items: start;
+      align-items: stretch;
     }
     .trust-card {
       background: var(--light);
       border: 1.5px solid var(--border);
       border-radius: 16px;
       padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .trust-card h3 {
       font-size: 18px;
@@ -607,8 +634,8 @@
       <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer" class="nav-appstore">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="nav-appstore js-play-badge">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play">
+      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="nav-appstore js-play-badge google-badge-crop">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="google-badge-zoom nav-google-zoom">
       </a>
       <a href="#contact" class="nav-cta">Get in Touch</a>
     </div>
@@ -806,8 +833,8 @@
         <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer">
           <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="cta-badge-img">
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge">
-          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="cta-badge-img">
+        <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge google-badge-crop cta-crop">
+          <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="google-badge-zoom cta-google-zoom">
         </a>
       </div>
     </div>
@@ -1001,8 +1028,8 @@
       <a href="https://apps.apple.com/us/app/first-call-advantage/id6788460503" target="_blank" rel="noopener noreferrer">
         <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" class="footer-badge-img" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge">
-        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="footer-badge-img" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
+      <a href="https://play.google.com/store/apps/details?id=com.compassplace.fca&utm_source=na_Med" target="_blank" rel="noopener noreferrer" class="js-play-badge google-badge-crop footer-crop">
+        <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" class="google-badge-zoom footer-google-zoom" style="opacity: 0.7; transition: opacity 0.2s;" onmouseover="this.style.opacity=\'1\';" onmouseout="this.style.opacity=\'0.7\';">
       </a>
     </div>
     <p>A service of Compass Place &nbsp;&bull;&nbsp; &copy; 2026 Compass Place LLC. All rights reserved.</p>
