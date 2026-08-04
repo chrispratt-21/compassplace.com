@@ -374,7 +374,8 @@
       color: var(--navy);
       margin-bottom: 6px;
     }
-    .form-row input {
+    .form-row input,
+    .form-row textarea {
       width: 100%;
       padding: 12px 14px;
       border: 1.5px solid var(--border);
@@ -383,7 +384,12 @@
       font-family: inherit;
       color: var(--text);
     }
-    .form-row input:focus {
+    .form-row textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    .form-row input:focus,
+    .form-row textarea:focus {
       outline: none;
       border-color: var(--green2);
     }
@@ -878,6 +884,10 @@
             <label for="f-website">Agency website (optional)</label>
             <input type="text" id="f-website" name="website" maxlength="300">
           </div>
+          <div class="form-row">
+            <label for="f-comment">Additional comments (optional)</label>
+            <textarea id="f-comment" name="comment" maxlength="300" rows="3"></textarea>
+          </div>
           <!-- Honeypot -- left blank by real visitors, filled in by most bots -->
           <div class="form-hp" aria-hidden="true">
             <label for="f-hp">Leave this field blank</label>
@@ -942,6 +952,7 @@
           website: form.website.value.trim(),
           city: form.city.value.trim(),
           state: form.state.value.trim(),
+          comment: form.comment.value.trim(),
           hp: form.hp.value,
           page_loaded_at: pageLoadedAt
         };
@@ -1029,6 +1040,7 @@
       </a>
     </div>
     <p>A service of Compass Place &nbsp;&bull;&nbsp; &copy; 2026 Compass Place LLC. All rights reserved.</p>
+    <p style="margin-top: 8px;">12175 Visionary Way, Fishers, IN 46038</p>
   </footer>
 
 </body>
