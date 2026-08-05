@@ -358,13 +358,81 @@
 
     /* ── Contact / form ──────────────────────────────────── */
     .contact { background: var(--light); }
-    .contact-wrap {
-      max-width: 560px;
+    /* Outer three-column layout: form card / OR divider / schedule
+       card. .contact-wrap and .contact-schedule are the two side
+       cards; sizing and centering now live here instead of on
+       .contact-wrap directly, since .contact-wrap is a grid item now,
+       not a lone centered block. */
+    .contact-columns {
+      max-width: 1040px;
       margin: 40px auto 0;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 8px;
+    }
+    .contact-wrap {
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 16px;
       padding: 40px;
+    }
+    .contact-schedule {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-schedule-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+    .contact-schedule-sub {
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    /* Koalendar sizes its iframe to fill this container -- a fixed
+       height keeps it from collapsing to 0 before the async widget
+       script mounts. Adjust if the live calendar renders taller or
+       shorter than this once Koalendar's script is actually loading
+       on the page. */
+    .koalendar-inline {
+      flex: 1;
+      min-height: 600px;
+    }
+    .contact-divider {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      padding: 0 8px;
+    }
+    .contact-divider .divider-line {
+      width: 1px;
+      flex: 1;
+      background: var(--border);
+    }
+    .contact-divider .divider-label {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--navy);
     }
     .form-row { margin-bottom: 18px; }
     .form-row label {
@@ -586,6 +654,11 @@
       .steps { grid-template-columns: 1fr; }
       .trust-grid { grid-template-columns: 1fr; gap: 24px; }
       .contact-wrap { padding: 28px; }
+      .contact-schedule { padding: 28px; }
+      .contact-columns { grid-template-columns: 1fr; gap: 0; }
+      .contact-divider { flex-direction: row; padding: 20px 0; }
+      .contact-divider .divider-line { width: auto; height: 1px; }
+      .koalendar-inline { min-height: 480px; }
       .form-two-col { grid-template-columns: 1fr; gap: 0; }
       .benefits-grid { grid-template-columns: 1fr; }
       .audience-list { grid-template-columns: 1fr; }
@@ -849,64 +922,84 @@
       <h2 class="section-title" style="text-align:center;">Tell us about your agency.</h2>
       <p class="section-sub" style="text-align:center; margin: 0 auto;">A few details and we'll follow up to walk you through how FCA works for your agency.</p>
 
-      <div class="contact-wrap">
-        <form id="fca-inquiry-form" novalidate>
-          <div class="form-row">
-            <label for="f-agency">Agency Name</label>
-            <input type="text" id="f-agency" name="agency_name" required maxlength="200">
-          </div>
-          <div class="form-row">
-            <label for="f-contact">Your Name</label>
-            <input type="text" id="f-contact" name="contact_name" maxlength="200">
-          </div>
-          <div class="form-two-col">
+      <div class="contact-columns">
+        <div class="contact-wrap">
+          <form id="fca-inquiry-form" novalidate>
             <div class="form-row">
-              <label for="f-phone">Phone</label>
-              <input type="tel" id="f-phone" name="phone" maxlength="40">
+              <label for="f-agency">Agency Name</label>
+              <input type="text" id="f-agency" name="agency_name" required maxlength="200">
             </div>
             <div class="form-row">
-              <label for="f-email">Email</label>
-              <input type="email" id="f-email" name="email" maxlength="200">
+              <label for="f-contact">Your Name</label>
+              <input type="text" id="f-contact" name="contact_name" maxlength="200">
             </div>
-          </div>
-          <p class="form-hint">Please provide at least a phone number or an email so we can follow up.</p>
-          <div class="form-two-col">
+            <div class="form-two-col">
+              <div class="form-row">
+                <label for="f-phone">Phone</label>
+                <input type="tel" id="f-phone" name="phone" maxlength="40">
+              </div>
+              <div class="form-row">
+                <label for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" maxlength="200">
+              </div>
+            </div>
+            <p class="form-hint">Please provide at least a phone number or an email so we can follow up.</p>
+            <div class="form-two-col">
+              <div class="form-row">
+                <label for="f-city">City</label>
+                <input type="text" id="f-city" name="city" maxlength="100">
+              </div>
+              <div class="form-row">
+                <label for="f-state">State</label>
+                <input type="text" id="f-state" name="state" maxlength="100">
+              </div>
+            </div>
             <div class="form-row">
-              <label for="f-city">City</label>
-              <input type="text" id="f-city" name="city" maxlength="100">
+              <label for="f-website">Agency Website (optional)</label>
+              <input type="text" id="f-website" name="website" maxlength="300">
             </div>
             <div class="form-row">
-              <label for="f-state">State</label>
-              <input type="text" id="f-state" name="state" maxlength="100">
+              <label for="f-comment">Additional Comments (optional)</label>
+              <textarea id="f-comment" name="comment" maxlength="300" rows="3"></textarea>
             </div>
+            <!-- Honeypot -- left blank by real visitors, filled in by most bots -->
+            <div class="form-hp" aria-hidden="true">
+              <label for="f-hp">Leave this field blank</label>
+              <input type="text" id="f-hp" name="hp" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn-submit" id="fca-submit-btn">Request Information</button>
+            <div class="form-status" id="fca-form-status"></div>
+          </form>
+          <div class="form-fallback" id="fca-form-fallback">
+            Prefer email? Reach us directly at <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.
           </div>
-          <div class="form-row">
-            <label for="f-website">Agency Website (optional)</label>
-            <input type="text" id="f-website" name="website" maxlength="300">
+          <div class="form-success" id="fca-form-success">
+            <div class="form-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 6L9 17L4 12" stroke="#72921b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Thanks, we've got it.</h3>
+            <p>We've received your information and an advocate will follow up soon. If anything is time sensitive, reach us directly at <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.</p>
           </div>
-          <div class="form-row">
-            <label for="f-comment">Additional Comments (optional)</label>
-            <textarea id="f-comment" name="comment" maxlength="300" rows="3"></textarea>
-          </div>
-          <!-- Honeypot -- left blank by real visitors, filled in by most bots -->
-          <div class="form-hp" aria-hidden="true">
-            <label for="f-hp">Leave this field blank</label>
-            <input type="text" id="f-hp" name="hp" tabindex="-1" autocomplete="off">
-          </div>
-          <button type="submit" class="btn-submit" id="fca-submit-btn">Request Information</button>
-          <div class="form-status" id="fca-form-status"></div>
-        </form>
-        <div class="form-fallback" id="fca-form-fallback">
-          Prefer email? Reach us directly at <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.
         </div>
-        <div class="form-success" id="fca-form-success">
-          <div class="form-success-icon">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M20 6L9 17L4 12" stroke="#72921b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3>Thanks, we've got it.</h3>
-          <p>We've received your information and an advocate will follow up soon. If anything is time sensitive, reach us directly at <a href="mailto:connect@compassplace.com">connect@compassplace.com</a>.</p>
+
+        <!-- Divider between the form and the scheduling calendar -- a
+             vertical rule with a big "OR" badge on desktop (two columns
+             side by side), flips to a horizontal rule at the 768px
+             breakpoint where contact-columns stacks to one column. -->
+        <div class="contact-divider" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-label">OR</span>
+          <span class="divider-line"></span>
+        </div>
+
+        <div class="contact-schedule">
+          <h3 class="contact-schedule-title">Prefer to pick a time yourself?</h3>
+          <p class="contact-schedule-sub">Grab a spot directly on our calendar, no form required.</p>
+          <!-- Populated client-side by Koalendar's inline widget script,
+               loaded near the other page scripts before </body>. -->
+          <div id="inline-widget-fca-chat" class="koalendar-inline"></div>
         </div>
       </div>
     </div>
@@ -1042,6 +1135,11 @@
     <p>A service of Compass Place &nbsp;&bull;&nbsp; &copy; 2026 Compass Place LLC. All rights reserved.</p>
     <p style="margin-top: 8px;">12175 Visionary Way, Fishers, IN 46038</p>
   </footer>
+
+  <!-- Koalendar Inline Embed (Get In Touch section, #inline-widget-fca-chat) -->
+  <script>window.Koalendar=window.Koalendar||function(){(Koalendar.props=Koalendar.props||[]).push(arguments)};</script>
+  <script async src="https://koalendar.com/assets/widget.js"></script>
+  <script>Koalendar('inline', {"url":"https://koalendar.com/e/fca-chat","selector":"#inline-widget-fca-chat"});</script>
 
 </body>
 </html>
