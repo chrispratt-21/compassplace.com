@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First Call Advantage | Faster Lead Response for Home Care Agencies</title>
+  <title>First Call Advantage | Fast Response and Long-Term Follow-Up for Home Care Agencies</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -264,6 +264,66 @@
       margin-bottom: 4px;
     }
     .problem-card p { font-size: 14px; color: var(--sub); line-height: 1.55; margin: 0; }
+
+    /* ── Thesis (two moments) ────────────────────────────── */
+    .thesis { background: var(--white); }
+    .thesis-lead {
+      max-width: 760px;
+      margin: 0 auto 48px;
+      text-align: center;
+    }
+    .thesis-lead p {
+      font-size: 17px;
+      color: var(--sub);
+      line-height: 1.75;
+    }
+    .thesis-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 8px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .thesis-card {
+      background: var(--light);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+    .thesis-card .service-tag { margin-bottom: 14px; }
+    .thesis-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .thesis-card p { font-size: 15px; color: var(--sub); line-height: 1.65; }
+    .thesis-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      font-size: 22px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    /* ── Service tag (eyebrow badge marking which service a section
+       belongs to, MPL or LGL) ────────────────────────────── */
+    .service-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 100px;
+    }
+    .service-tag.tag-mpl { background: rgba(158,202,37,0.12); color: var(--green2); }
+    .service-tag.tag-lgl { background: rgba(1,37,96,0.08); color: var(--navy); }
+    .benefits .service-tag.tag-lgl { background: rgba(158,202,37,0.18); color: var(--green); }
 
     /* ── How it works ────────────────────────────────────── */
     .how { background: var(--white); }
@@ -567,7 +627,7 @@
     .audience { background: var(--light); }
     .audience-list {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
       margin-top: 48px;
     }
@@ -652,6 +712,8 @@
       .stats-grid { grid-template-columns: 1fr; gap: 32px; }
       .problem-grid { grid-template-columns: 1fr; gap: 40px; }
       .steps { grid-template-columns: 1fr; }
+      .thesis-grid { grid-template-columns: 1fr; gap: 0; }
+      .thesis-divider { padding: 12px 0; transform: rotate(90deg); }
       .trust-grid { grid-template-columns: 1fr; gap: 24px; }
       .contact-wrap { padding: 28px; }
       .contact-schedule { padding: 28px; }
@@ -701,7 +763,8 @@
   <nav>
     <div class="nav-logo"><span>First</span> Call Advantage</div>
     <div class="nav-links">
-      <a href="#how-it-works">How It Works</a>
+      <a href="#how-it-works">Marketplace Response</a>
+      <a href="#long-game">Long Game</a>
       <a href="#trust">Who's Calling</a>
       <a href="#benefits">Benefits</a>
     </div>
@@ -719,12 +782,12 @@
   <!-- Hero -->
   <div class="hero">
     <div class="hero-badge">For Home Care Agencies</div>
-    <h1>The first call wins.<br><span>We work to get you there first.</span></h1>
-    <p>First Call Advantage gives your agency an on-duty advocate ready to reach leads while you're unavailable, whether that's after hours, on weekends, or in the middle of a workday meeting you can't leave. Tap one button on our app and we cover you. Tap again when you are ready to take over.</p>
+    <h1>The first call wins.<br><span>Then the long game closes.</span></h1>
+    <p>Home care sales isn't one moment, it's two. First Call Advantage covers both: an on-duty advocate ready to reach new marketplace leads the instant they arrive, and a patient, cadenced follow-up service for the families who don't say yes right away. One team, working both ends of your pipeline, so a slow "not yet" never quietly becomes a lost lead.</p>
     <div class="hero-cta">
       <a href="#contact" class="btn-primary">Request Information</a>
     </div>
-    <p class="hero-disclaimer">Response times vary based on advocate availability and configured coverage hours.</p>
+    <p class="hero-disclaimer">Response and follow-up timing vary based on advocate availability and configured coverage.</p>
   </div>
 
   <!-- Stats -->
@@ -732,24 +795,49 @@
     <div class="stats-grid">
       <div class="stat-item">
         <div class="stat-number">1st</div>
-        <div class="stat-desc">The agency that calls first establishes the relationship in the vast majority of cases. 40% of leads come in during evenings or weekends.</div>
+        <div class="stat-desc">The agency that calls first establishes the relationship in the vast majority of cases. That's what our on-duty advocates are built for.</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">&lt;5 min</div>
-        <div class="stat-desc">Our goal is to reach incoming leads within minutes of receiving the referral notification.</div>
+        <div class="stat-number-sm">Up to 5<br>Follow-Ups</div>
+        <div class="stat-desc">Most families don't say yes on the first call. We keep working a lead on a set cadence, weekly or monthly, long after the moment has passed.</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number-sm">Fills<br>Your Gaps</div>
-        <div class="stat-desc">Coverage during evenings, weekends, and the workday moments when your team simply can't step away.</div>
+        <div class="stat-number-sm">2 Ways<br>We Cover You</div>
+        <div class="stat-desc">Speed when a new lead lands, persistence when it doesn't convert right away. One advocate team, both parts of your sales process.</div>
       </div>
     </div>
   </div>
+
+  <!-- Thesis: the two moments that decide a lead -->
+  <section class="thesis">
+    <div class="section-inner">
+      <p class="section-label" style="text-align:center;">How Home Care Sales Actually Works</p>
+      <h2 class="section-title" style="text-align:center; max-width:760px; margin-left:auto; margin-right:auto;">A lead's fate is rarely decided in one conversation.</h2>
+      <div class="thesis-lead">
+        <p>A family that doesn't sign up on the first call isn't a lost lead, they're usually still deciding, comparing agencies, or waiting on family input. Most agencies are stretched thin enough to handle the first moment well. Almost none have the bandwidth to systematically handle the second, because sticking to a real follow-up cadence competes with the day-to-day of running the business. First Call Advantage is built to cover both.</p>
+      </div>
+      <div class="thesis-grid">
+        <div class="thesis-card">
+          <span class="service-tag tag-mpl">⚡ Marketplace Response</span>
+          <h3>The moment a lead arrives</h3>
+          <p>Speed decides who a family talks to first. We aim to reach new marketplace leads within minutes, so your agency is the one that sets the tone before anyone else gets the chance.</p>
+        </div>
+        <div class="thesis-divider">→</div>
+        <div class="thesis-card">
+          <span class="service-tag tag-lgl">🔄 Long Game</span>
+          <h3>Every moment after that</h3>
+          <p>Persistence decides who a family chooses in the end. We keep working the leads that don't convert right away, on a steady cadence, until they're ready or the answer is genuinely no.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Problem -->
   <section class="problem" id="problem">
     <div class="section-inner">
       <div class="problem-grid">
         <div class="problem-text">
+          <span class="service-tag tag-mpl" style="margin-bottom: 14px;">⚡ Marketplace Response</span>
           <p class="section-label">The Problem</p>
           <h2 class="section-title">Marketplace leads are time-sensitive. Most agencies aren't built for that.</h2>
           <p>When a family submits an inquiry on A Place for Mom, Caring.com, or a similar platform, they hear from multiple agencies at the same time. The agency that reaches them first builds trust and sets expectations before anyone else gets a chance.</p>
@@ -785,6 +873,7 @@
   <!-- How It Works -->
   <section class="how" id="how-it-works">
     <div class="section-inner">
+      <span class="service-tag tag-mpl" style="margin-bottom: 14px;">⚡ Marketplace Response</span>
       <p class="section-label">How It Works</p>
       <h2 class="section-title">Simple setup. Immediate impact.</h2>
       <p class="section-sub">FCA connects to your existing marketplace lead flow in minutes and starts responding the same day.</p>
@@ -818,6 +907,81 @@
     </div>
   </section>
 
+  <!-- Long Game: Problem -->
+  <section class="problem" id="long-game">
+    <div class="section-inner">
+      <div class="problem-grid">
+        <div class="problem-text">
+          <span class="service-tag tag-lgl" style="margin-bottom: 14px;">🔄 Long Game</span>
+          <p class="section-label">The Other Problem</p>
+          <h2 class="section-title">Most families need more time than one call gives them.</h2>
+          <p>A great first conversation still doesn't convert most families right away. They need to talk it over, compare a couple of agencies, or wait for the right moment. A good sales process handles that with steady, periodic follow-up, but that takes someone dedicated to tracking who's due for a call and actually making it.</p>
+          <p>Agencies know this. Most just don't have the extra hands for it. The families you've already spoken with, or already worked, sit in a spreadsheet or a sticky note while the day-to-day takes over, and a lead that was never a "no" quietly goes cold anyway.</p>
+        </div>
+        <div class="problem-cards">
+          <div class="problem-card">
+            <div class="problem-icon">🗓️</div>
+            <div>
+              <h4>Follow-up falls through the cracks</h4>
+              <p>You know you should call that family back in two weeks. Next Tuesday becomes next month, and the window closes without anyone deciding it should.</p>
+            </div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">💬</div>
+            <div>
+              <h4>"Not right now" isn't "no"</h4>
+              <p>Most families who don't sign up immediately are still deciding. They need a steady, low-pressure check-in, not silence and not a dozen unanswered messages either.</p>
+            </div>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon">⏳</div>
+            <div>
+              <h4>Nurturing takes bandwidth you don't have</h4>
+              <p>A real follow-up cadence needs someone whose job is to track it and stick to it. That's hard to justify staffing for something that isn't urgent today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Long Game: How It Works -->
+  <section class="how">
+    <div class="section-inner">
+      <span class="service-tag tag-lgl" style="margin-bottom: 14px;">🔄 Long Game</span>
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title">You hand off the lead. We keep the relationship warm.</h2>
+      <p class="section-sub">Long Game works any lead you've been cultivating, whatever its original source, not just marketplace referrals.</p>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Send us the lead</h3>
+          <p>When a family goes quiet, hand it to us: last contact date, what's already been discussed, and the best time to reach them. As simple as sending an email.</p>
+          <div class="step-detail">No new lead source, no new system. It's the follow-up you'd do yourself if you had the hours in the day.</div>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>We build a cadence</h3>
+          <p>Based on how soon the family expects to need care, we schedule ongoing outreach on a rhythm that fits, without ever feeling like pressure.</p>
+          <div class="step-detail">Families who need care soon get weekly check-ins. Families earlier in the decision get a monthly cadence instead.</div>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>We check in on your behalf</h3>
+          <p>Our trained advocates place each call under your agency's name, continuing the relationship you already started rather than starting over.</p>
+          <div class="step-detail">A voicemail still counts as a touchpoint. A real conversation moves the family forward or tells us honestly where they stand.</div>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>You hear the moment it matters</h3>
+          <p>The instant a family is ready to move forward, you're notified so your team can step back in and take the relationship live.</p>
+          <div class="step-detail">You also hear when a family chooses another agency or their situation resolves, so nothing lingers as an open question on your end.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Trust -->
   <section class="trust" id="trust">
     <div class="section-inner">
@@ -842,29 +1006,41 @@
   <section class="benefits" id="benefits">
     <div class="section-inner">
       <p class="section-label">Benefits</p>
-      <h2 class="section-title">Built for home care agencies.</h2>
-      <p class="section-sub">FCA handles the moment of first contact so your team can focus on the client in front of them.</p>
+      <h2 class="section-title">Built for how home care sales actually plays out.</h2>
+      <p class="section-sub">FCA handles the moment of first contact and everything that comes after it, so your team can focus on the client in front of them.</p>
 
       <div class="benefits-grid">
         <div class="benefit-card">
+          <span class="service-tag tag-mpl" style="margin-bottom: 14px;">⚡ Marketplace Response</span>
           <div class="benefit-icon">⚡</div>
           <h3>Fast, personal outreach on every lead</h3>
           <p>Every lead gets a real phone call from a trained advocate, not a voicemail and not a form. During your configured coverage hours, we aim to reach families before the competition does.</p>
         </div>
         <div class="benefit-card">
+          <span class="service-tag tag-lgl" style="margin-bottom: 14px;">🔄 Long Game</span>
+          <div class="benefit-icon">🔄</div>
+          <h3>No lead goes quiet without a plan</h3>
+          <p>Every Long Game lead is on a scheduled cadence, not a mental note about who you meant to call back. If a family is still deciding, someone is still reaching out.</p>
+        </div>
+        <div class="benefit-card">
           <div class="benefit-icon">🏷️</div>
           <h3>Your brand, our execution</h3>
-          <p>Advocates represent your agency by name. The family's experience is seamless. They won't know they're talking to a third-party service because the interaction is professional and personalized.</p>
+          <p>Advocates represent your agency by name on every call, first response or long-term follow-up alike. The family's experience is seamless. They won't know they're talking to a third-party service because the interaction is professional and personalized.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">📊</div>
           <h3>Full visibility into every lead</h3>
-          <p>Your mobile dashboard shows every lead received, every call made, and every outcome logged. No guessing about what happened with a referral. Everything is documented.</p>
+          <p>Your mobile dashboard shows every lead received, every call made, and every outcome logged, including attempt counts and the next scheduled call on active Long Game leads. No guessing about what happened with a referral. Everything is documented.</p>
+        </div>
+        <div class="benefit-card">
+          <div class="benefit-icon">🧭</div>
+          <h3>Not dependent on any one lead source</h3>
+          <p>Marketplace Response works your APFM and similar referrals. Long Game works any lead you've already been cultivating, however it originally reached you. Your pipeline isn't tied to a single channel staying fast or staying around.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">💡</div>
           <h3>No new staff. No training. No hassle.</h3>
-          <p>FCA requires no hiring, no onboarding, and no change to how you operate. You set up a forwarding rule once and coverage starts immediately.</p>
+          <p>FCA requires no hiring, no onboarding, and no change to how you operate. Set up a forwarding rule for marketplace leads, and hand off a cold lead by email whenever you want it worked. Coverage starts immediately either way.</p>
         </div>
       </div>
     </div>
@@ -892,15 +1068,20 @@
           <h4>You're a small team doing a lot</h4>
           <p>Owner-operators and small agencies can't hire a full-time intake coordinator. FCA gives you enterprise-level responsiveness without adding headcount.</p>
         </div>
+        <div class="audience-item">
+          <div class="audience-emoji">📋</div>
+          <h4>You have leads you know you should call back</h4>
+          <p>Families you've already talked to, sitting in a spreadsheet or a sticky note, waiting on a follow-up that keeps getting pushed to tomorrow. That's exactly what Long Game is built to pick up.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-section">
-    <h2>Ready to stop missing leads?</h2>
-    <p>Get in touch to learn how FCA can work for your agency.</p>
-    <p style="font-size: 15px; color: #14532d; margin-top: -20px; margin-bottom: 32px; font-weight: 600;">Simple, outcome-based pricing. You're not paying full price for a call that only reaches voicemail.</p>
+    <h2>Ready to stop losing leads, early or late?</h2>
+    <p>Get in touch to learn how FCA's marketplace response and Long Game follow-up can work for your agency.</p>
+    <p style="font-size: 15px; color: #14532d; margin-top: -20px; margin-bottom: 32px; font-weight: 600;">Simple, outcome-based pricing on both services. You're not paying full price for a call that only reaches voicemail.</p>
     <a href="#contact" class="btn-dark">Request Information</a>
     <div style="margin-top: 36px; padding-top: 32px; border-top: 1px solid rgba(20,83,45,0.3);">
       <p style="font-size: 14px; color: #14532d; margin-bottom: 14px; font-weight: 600;">Download our app to activate coverage with the tap of a button.</p>
@@ -920,7 +1101,7 @@
     <div class="section-inner">
       <p class="section-label" style="text-align:center;">Get In Touch</p>
       <h2 class="section-title" style="text-align:center;">Submit your contact info<br>OR<br>put a meeting on our calendar.</h2>
-      <p class="section-sub" style="text-align:center; margin: 0 auto;">Connect with us and we'll walk you through how<br>FCA might help your agency.</p>
+      <p class="section-sub" style="text-align:center; margin: 0 auto;">Connect with us and we'll walk you through how<br>FCA's marketplace response and Long Game follow-up might help your agency.</p>
 
       <div class="contact-columns">
         <div class="contact-wrap">
@@ -1117,7 +1298,8 @@
   <footer>
     <div class="footer-logo"><span>First</span> Call Advantage</div>
     <div class="footer-links">
-      <a href="#how-it-works">How It Works</a>
+      <a href="#how-it-works">Marketplace Response</a>
+      <a href="#long-game">Long Game</a>
       <a href="#trust">Who's Calling</a>
       <a href="#benefits">Benefits</a>
       <a href="privacy.html">Privacy Policy</a>
