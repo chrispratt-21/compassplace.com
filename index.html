@@ -399,18 +399,21 @@
         }
 
         /* Address / phone / email / hours, relocated below the
-           form-or-calendar row so it isn't displaced by the new layout. */
+           form-or-calendar row so it isn't displaced by the new layout.
+           Visit Us / Call Us / Email are stacked in a left column so the
+           two columns land closer to the same height as the Hours table. */
         .contact-info-strip {
             max-width: 980px;
             margin: 48px auto 0;
             padding-top: 32px;
             border-top: 1px solid var(--color-border);
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 48px;
         }
-        @media (max-width: 768px) { .contact-info-strip { grid-template-columns: 1fr 1fr; } }
         @media (max-width: 480px) { .contact-info-strip { grid-template-columns: 1fr; } }
+        .contact-info-col .contact-detail { margin-bottom: 20px; }
+        .contact-info-col .contact-detail:last-child { margin-bottom: 0; }
         .contact-detail strong { display: block; color: var(--color-text); font-weight: 600; margin-bottom: 4px; font-size: 0.9rem; }
         .contact-detail p, .contact-detail a { color: var(--color-text-secondary); font-size: 0.92rem; }
         .contact-detail a { color: var(--color-primary); text-decoration: none; }
@@ -649,29 +652,33 @@
     </div>
 
     <div class="contact-info-strip">
-        <div class="contact-detail">
-            <strong>Visit Us</strong>
-            <p>12175 Visionary Way, Fishers, IN 46038</p>
+        <div class="contact-info-col">
+            <div class="contact-detail">
+                <strong>Visit Us</strong>
+                <p>12175 Visionary Way, Fishers, IN 46038</p>
+            </div>
+            <div class="contact-detail">
+                <strong>Call Us</strong>
+                <p><a href="tel:3174266866">317-426-6866</a></p>
+            </div>
+            <div class="contact-detail">
+                <strong>Email</strong>
+                <p><a href="mailto:connect@compassplace.com">connect@compassplace.com</a></p>
+            </div>
         </div>
-        <div class="contact-detail">
-            <strong>Call Us</strong>
-            <p><a href="tel:3174266866">317-426-6866</a></p>
-        </div>
-        <div class="contact-detail">
-            <strong>Email</strong>
-            <p><a href="mailto:connect@compassplace.com">connect@compassplace.com</a></p>
-        </div>
-        <div class="contact-detail">
-            <strong>Hours</strong>
-            <table class="hours-table">
-                <tr><td>Mon</td><td>9:00 AM – 5:00 PM</td></tr>
-                <tr><td>Tue</td><td>9:00 AM – 5:00 PM</td></tr>
-                <tr><td>Wed</td><td>9:00 AM – 5:00 PM</td></tr>
-                <tr><td>Thu</td><td>9:00 AM – 5:00 PM</td></tr>
-                <tr><td>Fri</td><td>9:00 AM – 5:00 PM</td></tr>
-                <tr><td>Sat</td><td>Closed</td></tr>
-                <tr><td>Sun</td><td>Closed</td></tr>
-            </table>
+        <div class="contact-info-col">
+            <div class="contact-detail">
+                <strong>Hours</strong>
+                <table class="hours-table">
+                    <tr><td>Mon</td><td>9:00 AM – 5:00 PM</td></tr>
+                    <tr><td>Tue</td><td>9:00 AM – 5:00 PM</td></tr>
+                    <tr><td>Wed</td><td>9:00 AM – 5:00 PM</td></tr>
+                    <tr><td>Thu</td><td>9:00 AM – 5:00 PM</td></tr>
+                    <tr><td>Fri</td><td>9:00 AM – 5:00 PM</td></tr>
+                    <tr><td>Sat</td><td>Closed</td></tr>
+                    <tr><td>Sun</td><td>Closed</td></tr>
+                </table>
+            </div>
         </div>
     </div>
 </section>
