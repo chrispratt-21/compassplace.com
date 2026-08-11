@@ -318,29 +318,106 @@
         .value-item p { color: var(--color-text-secondary); font-size: 0.88rem; }
 
         /* ---- CONTACT ---- */
-        .contact-grid {
+        /* Outer three-column layout: form card / OR divider / schedule
+           card, mirroring the pattern on the FCA page. */
+        .contact-columns {
+            max-width: 980px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: stretch;
+            gap: 8px;
         }
-        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
-        .contact-info h3 {
+        .contact-wrap {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 36px;
+        }
+        .contact-schedule {
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius);
+            padding: 36px;
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-schedule-title {
             font-family: var(--font-display);
             font-size: 1.3rem;
             color: var(--color-primary);
-            margin-bottom: 16px;
+            text-align: center;
+            margin-bottom: 8px;
         }
-        .contact-info p, .contact-info a {
+        .contact-schedule-sub {
+            font-size: 0.9rem;
             color: var(--color-text-secondary);
-            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 20px;
         }
-        .contact-info a { color: var(--color-primary); text-decoration: none; }
-        .contact-info a:hover { text-decoration: underline; }
-        .contact-detail { margin-bottom: 20px; }
-        .contact-detail strong { display: block; color: var(--color-text); font-weight: 600; margin-bottom: 4px; }
-        .hours-table { width: 100%; font-size: 0.9rem; }
-        .hours-table td { padding: 4px 0; color: var(--color-text-secondary); }
-        .hours-table td:first-child { font-weight: 500; color: var(--color-text); width: 60px; }
+        /* Koalendar sizes its iframe to fill this container -- a fixed
+           min-height keeps it from collapsing to 0 before the async
+           widget script mounts. */
+        .koalendar-inline {
+            flex: 1;
+            min-height: 600px;
+        }
+        .contact-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            padding: 0 8px;
+        }
+        .contact-divider .divider-line {
+            width: 1px;
+            flex: 1;
+            background: var(--color-border);
+        }
+        .contact-divider .divider-label {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            color: var(--color-primary);
+        }
+        @media (max-width: 768px) {
+            .contact-columns { grid-template-columns: 1fr; gap: 0; }
+            .contact-wrap { padding: 28px; }
+            .contact-schedule { padding: 28px; margin-top: 24px; }
+            .contact-divider { flex-direction: row; padding: 20px 0; }
+            .contact-divider .divider-line { width: auto; height: 1px; }
+            .koalendar-inline { min-height: 480px; }
+        }
+
+        /* Address / phone / email / hours, relocated below the
+           form-or-calendar row so it isn't displaced by the new layout. */
+        .contact-info-strip {
+            max-width: 980px;
+            margin: 48px auto 0;
+            padding-top: 32px;
+            border-top: 1px solid var(--color-border);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        @media (max-width: 768px) { .contact-info-strip { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .contact-info-strip { grid-template-columns: 1fr; } }
+        .contact-detail strong { display: block; color: var(--color-text); font-weight: 600; margin-bottom: 4px; font-size: 0.9rem; }
+        .contact-detail p, .contact-detail a { color: var(--color-text-secondary); font-size: 0.92rem; }
+        .contact-detail a { color: var(--color-primary); text-decoration: none; }
+        .contact-detail a:hover { text-decoration: underline; }
+        .hours-table { width: 100%; font-size: 0.88rem; }
+        .hours-table td { padding: 3px 0; color: var(--color-text-secondary); }
+        .hours-table td:first-child { font-weight: 500; color: var(--color-text); width: 50px; }
 
         .contact-form label {
             display: block;
@@ -530,50 +607,71 @@
     <p class="section-label">Get in Touch</p>
     <h2>Contact Us</h2>
     <br>
-    <div class="contact-grid">
-        <form class="contact-form" action="https://formspree.io/f/xqedgwkw" method="POST">
-            <input type="hidden" name="_subject" value="New message from compassplace.com">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name">
-            <label for="email">Email *</label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com">
-            <label for="phone">Phone</label>
-            <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="How can we help?"></textarea>
-            <label for="concern">What's the biggest concern you have about your parent's (or loved one's) current situation?</label>
-            <textarea id="concern" name="concern" placeholder="Share as much or as little as you'd like..."></textarea>
-            <label for="exploring">Has your family started exploring options yet, or is this the beginning of that conversation?</label>
-            <textarea id="exploring" name="exploring" placeholder="For example: we've toured a few communities, or we're just starting to think about this..."></textarea>
-            <label for="trigger">Is there a specific situation or health change that's prompting this search?</label>
-            <textarea id="trigger" name="trigger" placeholder="For example: a recent fall, a hospital stay, or a gradual change we've noticed..."></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <div class="contact-info">
-            <div class="contact-detail">
-                <strong>Visit Us</strong>
-                <p>12175 Visionary Way, Fishers, IN 46038</p>
-            </div>
-            <div class="contact-detail">
-                <strong>Call Us</strong>
-                <p><a href="tel:3174266866">317-426-6866</a></p>
-            </div>
-            <div class="contact-detail">
-                <strong>Email</strong>
-                <p><a href="/cdn-cgi/l/email-protection#e784888989828493a784888a97869494978b868482c984888a"><span class="__cf_email__" data-cfemail="1c7f737272797f685c7f73716c7d6f6f6c707d7f79327f7371">[email&#160;protected]</span></a></p>
-            </div>
-            <div class="contact-detail">
-                <strong>Hours</strong>
-                <table class="hours-table">
-                    <tr><td>Mon</td><td>9:00 AM – 5:00 PM</td></tr>
-                    <tr><td>Tue</td><td>9:00 AM – 5:00 PM</td></tr>
-                    <tr><td>Wed</td><td>9:00 AM – 5:00 PM</td></tr>
-                    <tr><td>Thu</td><td>9:00 AM – 5:00 PM</td></tr>
-                    <tr><td>Fri</td><td>9:00 AM – 5:00 PM</td></tr>
-                    <tr><td>Sat</td><td>Closed</td></tr>
-                    <tr><td>Sun</td><td>Closed</td></tr>
-                </table>
-            </div>
+    <div class="contact-columns">
+        <div class="contact-wrap">
+            <form class="contact-form" action="https://formspree.io/f/xqedgwkw" method="POST">
+                <input type="hidden" name="_subject" value="New message from compassplace.com">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" required placeholder="you@example.com">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="How can we help?"></textarea>
+                <label for="concern">What's the biggest concern you have about your parent's (or loved one's) current situation?</label>
+                <textarea id="concern" name="concern" placeholder="Share as much or as little as you'd like..."></textarea>
+                <label for="exploring">Has your family started exploring options yet, or is this the beginning of that conversation?</label>
+                <textarea id="exploring" name="exploring" placeholder="For example: we've toured a few communities, or we're just starting to think about this..."></textarea>
+                <label for="trigger">Is there a specific situation or health change that's prompting this search?</label>
+                <textarea id="trigger" name="trigger" placeholder="For example: a recent fall, a hospital stay, or a gradual change we've noticed..."></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <!-- Divider between the form and the scheduling calendar -- a
+             vertical rule with an "OR" badge on desktop (two columns
+             side by side), flips to a horizontal rule at the 768px
+             breakpoint where contact-columns stacks to one column. -->
+        <div class="contact-divider" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-label">OR</span>
+            <span class="divider-line"></span>
+        </div>
+
+        <div class="contact-schedule">
+            <h3 class="contact-schedule-title">Prefer to pick a time yourself?</h3>
+            <p class="contact-schedule-sub">Grab a spot directly on our calendar, no form required.</p>
+            <!-- Populated client-side by Koalendar's inline widget script,
+                 loaded near the other page scripts before </body>. -->
+            <div id="inline-widget-compass-place" class="koalendar-inline"></div>
+        </div>
+    </div>
+
+    <div class="contact-info-strip">
+        <div class="contact-detail">
+            <strong>Visit Us</strong>
+            <p>12175 Visionary Way, Fishers, IN 46038</p>
+        </div>
+        <div class="contact-detail">
+            <strong>Call Us</strong>
+            <p><a href="tel:3174266866">317-426-6866</a></p>
+        </div>
+        <div class="contact-detail">
+            <strong>Email</strong>
+            <p><a href="/cdn-cgi/l/email-protection#e784888989828493a784888a97869494978b868482c984888a"><span class="__cf_email__" data-cfemail="1c7f737272797f685c7f73716c7d6f6f6c707d7f79327f7371">[email&#160;protected]</span></a></p>
+        </div>
+        <div class="contact-detail">
+            <strong>Hours</strong>
+            <table class="hours-table">
+                <tr><td>Mon</td><td>9:00 AM – 5:00 PM</td></tr>
+                <tr><td>Tue</td><td>9:00 AM – 5:00 PM</td></tr>
+                <tr><td>Wed</td><td>9:00 AM – 5:00 PM</td></tr>
+                <tr><td>Thu</td><td>9:00 AM – 5:00 PM</td></tr>
+                <tr><td>Fri</td><td>9:00 AM – 5:00 PM</td></tr>
+                <tr><td>Sat</td><td>Closed</td></tr>
+                <tr><td>Sun</td><td>Closed</td></tr>
+            </table>
         </div>
     </div>
 </section>
@@ -654,6 +752,11 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
     });
 });
 </script>
+
+<!-- Koalendar Inline Embed (Get in Touch section, #inline-widget-compass-place) -->
+<script>window.Koalendar=window.Koalendar||function(){(Koalendar.props=Koalendar.props||[]).push(arguments)};</script>
+<script async src="https://koalendar.com/assets/widget.js"></script>
+<script>Koalendar('inline', {"url":"https://koalendar.com/e/compass-place","selector":"#inline-widget-compass-place"});</script>
 
 </body>
 </html>
